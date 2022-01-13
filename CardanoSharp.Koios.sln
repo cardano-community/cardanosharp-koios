@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardanoSharp.Koios.Sdk", "CardanoSharp.Koios.Sdk\CardanoSharp.Koios.Sdk.csproj", "{72BE7E15-2E0B-45FA-BA82-087118070771}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardanoSharp.Koios.Sample", "CardanoSharp.Koios.Sample\CardanoSharp.Koios.Sample.csproj", "{76E7704D-6362-4BEF-81D0-5BDA50A70F55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72BE7E15-2E0B-45FA-BA82-087118070771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BE7E15-2E0B-45FA-BA82-087118070771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BE7E15-2E0B-45FA-BA82-087118070771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BE7E15-2E0B-45FA-BA82-087118070771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E7704D-6362-4BEF-81D0-5BDA50A70F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E7704D-6362-4BEF-81D0-5BDA50A70F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E7704D-6362-4BEF-81D0-5BDA50A70F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E7704D-6362-4BEF-81D0-5BDA50A70F55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
