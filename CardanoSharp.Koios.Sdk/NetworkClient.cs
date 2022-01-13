@@ -1,16 +1,18 @@
-﻿using CardanoSharp.Koios.Sdk.Contracts;
+﻿using System.Threading.Tasks;
+using CardanoSharp.Koios.Sdk.Contracts;
 using Refit;
 
-namespace CardanoSharp.Koios.Sdk;
-
-public interface INetworkClient
+namespace CardanoSharp.Koios.Sdk
 {
-    [Get("/tip")]
-    Task<BlockSummary[]> GetChainTip();
+    public interface INetworkClient
+    {
+        [Get("/tip")]
+        Task<BlockSummary[]> GetChainTip();
 
-    [Get("/genesis")]
-    Task<GenesisParameters[]> GetGenesisInfo();
+        [Get("/genesis")]
+        Task<GenesisParameters[]> GetGenesisInfo();
 
-    [Get("/totals?_epoch_no={epoch}")]
-    Task<TokenomicStats[]> GetHistoricalTokenomicStats(string epoch);
+        [Get("/totals?_epoch_no={epoch}")]
+        Task<TokenomicStats[]> GetHistoricalTokenomicStats(string epoch);
+    }
 }
