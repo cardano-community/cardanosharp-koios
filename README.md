@@ -12,9 +12,10 @@ Learn more here: [https://api.koios.rest/](https://api.koios.rest/)
 
 ## Getting Started
 
-Add nuget package: CardanoSharp.Koios.Sdk
-
-Link: [https://www.nuget.org/packages/CardanoSharp.Koios.Sdk/](https://www.nuget.org/packages/CardanoSharp.Koios.Sdk/)
+Add Nuget
+```bash
+dotnet add package CardanoSharp.Koios.Sdk
+```
 
 ## Network
 
