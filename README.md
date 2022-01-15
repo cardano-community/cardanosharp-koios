@@ -65,3 +65,32 @@ EpochInformation[] epochInformations = epochClient.GetEpochInformation().Result;
 string latestEpoch = "294";
 ProtocolParameters[] protocolParameters = epochClient.GetProtocolParameters(latestEpoch).Result;
 ```
+
+## Block
+
+Get instance of the `IBlockClient`
+
+```cs
+// Simple Resolution
+IBlockClient blockClient = RestService.For<IBlockClient>("https://api.koios.rest/api/v0");
+```
+
+### Get Block List
+
+```cs
+Block[] blockList = blockClient.GetBlockList().Result;
+```
+
+### Get Block Information
+
+```cs
+string blockHash = "f6192a1aaa6d3d05b4703891a6b66cd757801c61ace86cbe5ab0d66e07f601ab";
+Block[] blockInfo = blockClient.GetBlockInfo(blockHash).Result;
+```
+
+### Get Block Transactions
+
+```cs
+string blockHash = "f6192a1aaa6d3d05b4703891a6b66cd757801c61ace86cbe5ab0d66e07f601ab";
+BlockTransaction[] blockTransactions = blockClient.GetBlockTransactions(blockHash).Result;
+```
