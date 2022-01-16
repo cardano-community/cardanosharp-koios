@@ -16,6 +16,9 @@ namespace CardanoSharp.Koios.Sdk
         
         [Post("/tx_metadata")]
         Task<TransactionMetadata[]> GetTransactionMetadata([Body] GetTransactionRequest request);
+        
+        [Post("/tx_status")]
+        Task<TransactionStatus[]> GetTransactionStatus([Body] GetTransactionRequest request);
     }
 
     public class GetTransactionRequest

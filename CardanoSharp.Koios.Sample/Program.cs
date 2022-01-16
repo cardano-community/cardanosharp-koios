@@ -120,3 +120,12 @@ foreach (var tm in transactionMetadata)
     Console.WriteLine(JsonSerializer.Serialize(tm));
 }
 Console.WriteLine();
+
+// Get Transaction Metadata
+Console.WriteLine("Get Transaction Status");
+var transactionStatus = transactionClient.GetTransactionStatus(transactionRequest).Result;
+foreach (var ts in transactionStatus)
+{
+    Console.WriteLine(JsonSerializer.Serialize(ts));
+}
+Console.WriteLine();
