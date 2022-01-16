@@ -95,3 +95,52 @@ Block[] blockInfo = blockClient.GetBlockInfo(blockHash).Result;
 string blockHash = "f6192a1aaa6d3d05b4703891a6b66cd757801c61ace86cbe5ab0d66e07f601ab";
 BlockTransaction[] blockTransactions = blockClient.GetBlockTransactions(blockHash).Result;
 ```
+
+
+## Transaction
+
+Get instance of the `ITransactionClient`
+
+```cs
+// Simple Resolution
+ITransactionClient blockClient = RestService.For<ITransactionClient>("https://api.koios.rest/api/v0");
+```
+### Get Transaction Information
+
+```cs
+var transactionRequest = new GetTransactionRequest
+{
+    TxHashes = new List<string>()
+    {
+        "f144a8264acf4bdfe2e1241170969c930d64ab6b0996a4a45237b623f1dd670e",
+        "0b8ba3bed976fa4913f19adc9f6dd9063138db5b4dd29cecde369456b5155e94"
+    }
+};
+Transaction[] transactionInformation = transactionClient.GetTransactionInformation(transactionRequest).Result;
+```
+### Get Transaction UTxOs
+
+```cs
+var transactionRequest = new GetTransactionRequest
+{
+    TxHashes = new List<string>()
+    {
+        "f144a8264acf4bdfe2e1241170969c930d64ab6b0996a4a45237b623f1dd670e",
+        "0b8ba3bed976fa4913f19adc9f6dd9063138db5b4dd29cecde369456b5155e94"
+    }
+};
+Transaction[] transactionUtxos = transactionClient.GetTransactionUtxos(transactionRequest).Result;
+```
+### Get Transaction Metadata
+
+```cs
+var transactionRequest = new GetTransactionRequest
+{
+    TxHashes = new List<string>()
+    {
+        "f144a8264acf4bdfe2e1241170969c930d64ab6b0996a4a45237b623f1dd670e",
+        "0b8ba3bed976fa4913f19adc9f6dd9063138db5b4dd29cecde369456b5155e94"
+    }
+};
+TransactionMetadata[] transactionMetadata = transactionClient.GetTransactionMetadata(transactionRequest).Result;
+```

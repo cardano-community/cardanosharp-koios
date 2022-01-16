@@ -7,6 +7,7 @@ using Refit;
 var networkClient = RestService.For<INetworkClient>("https://api.koios.rest/api/v0");
 var epochClient = RestService.For<IEpochClient>("https://api.koios.rest/api/v0");
 var blockClient = RestService.For<IBlockClient>("https://api.koios.rest/api/v0");
+var transactionClient = RestService.For<ITransactionClient>("https://api.koios.rest/api/v0");
 
 // Query Chain Tip
 Console.WriteLine("Query Chain Tip");
@@ -80,5 +81,42 @@ var blockTransactions = blockClient.GetBlockTransactions(blockHash).Result;
 foreach (var bt in blockTransactions)
 {
     Console.WriteLine(JsonSerializer.Serialize(bt));
+}
+Console.WriteLine();
+
+
+var transactionRequest = new GetTransactionRequest
+{
+    TxHashes = new List<string>()
+    {
+        "f144a8264acf4bdfe2e1241170969c930d64ab6b0996a4a45237b623f1dd670e",
+        "0b8ba3bed976fa4913f19adc9f6dd9063138db5b4dd29cecde369456b5155e94"
+    }
+};
+
+// Get Transaction Information
+Console.WriteLine("Get Transaction Information");
+var transactionInformation = transactionClient.GetTransactionInformation(transactionRequest).Result;
+foreach (var ti in transactionInformation)
+{
+    Console.WriteLine(JsonSerializer.Serialize(ti));
+}
+Console.WriteLine();
+
+// Get Transaction UTxOs
+Console.WriteLine("Get Transaction UTxOs");
+var transactionUtxos = transactionClient.GetTransactionUtxos(transactionRequest).Result;
+foreach (var tu in transactionUtxos)
+{
+    Console.WriteLine(JsonSerializer.Serialize(tu));
+}
+Console.WriteLine();
+
+// Get Transaction Metadata
+Console.WriteLine("Get Transaction Metadata");
+var transactionMetadata = transactionClient.GetTransactionMetadata(transactionRequest).Result;
+foreach (var tm in transactionMetadata)
+{
+    Console.WriteLine(JsonSerializer.Serialize(tm));
 }
 Console.WriteLine();
