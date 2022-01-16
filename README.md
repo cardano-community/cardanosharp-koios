@@ -103,7 +103,7 @@ Get instance of the `ITransactionClient`
 
 ```cs
 // Simple Resolution
-ITransactionClient blockClient = RestService.For<ITransactionClient>("https://api.koios.rest/api/v0");
+ITransactionClient transactionClient = RestService.For<ITransactionClient>("https://api.koios.rest/api/v0");
 ```
 ### Get Transaction Information
 
@@ -156,4 +156,48 @@ var transactionRequest = new GetTransactionRequest
     }
 };
 TransactionStatus[] transactionStatus = transactionClient.GetTransactionStatus(transactionRequest).Result;
+```
+
+## Address
+
+Get instance of the `IAddressClient`
+
+```cs
+// Simple Resolution
+IAddressClient addressClient = RestService.For<IAddressClient>("https://api.koios.rest/api/v0");
+```
+### Get Address Information
+
+```cs
+var address = "addr1qyp9kz50sh9c53hpmk3l4ewj9ur794t2hdqpngsjn3wkc5sztv9glpwt3frwrhdrltjaytc8ut2k4w6qrx3p98zad3fq07xe9g";
+AddressInformation[] addressInformation = addressClient.GetAddressInformation(address).Result;
+```
+### Get Address Information
+
+```cs
+var addressTransactionRequest = new AddressTransactionRequest()
+{
+    Addresses = new List<string>()
+    {
+        "addr1qyp9kz50sh9c53hpmk3l4ewj9ur794t2hdqpngsjn3wkc5sztv9glpwt3frwrhdrltjaytc8ut2k4w6qrx3p98zad3fq07xe9g",
+        "addr1qyfldpcvte8nkfpyv0jdc8e026cz5qedx7tajvupdu2724tlj8sypsq6p90hl40ya97xamkm9fwsppus2ru8zf6j8g9sm578cu"
+    },
+    AfterBlockHeight = 6238675
+};
+AddressTransaction[] addressTransactions = addressClient.GetAddressTransactions(addressTransactionRequest).Result;
+```
+### Get Address Information
+
+```cs
+var credentialTransactionRequest = new CredentialTransactionRequest()
+{
+    PaymentCredentials = new List<string>()
+    {
+        "025b0a8f85cb8a46e1dda3fae5d22f07e2d56abb4019a2129c5d6c52",
+        "13f6870c5e4f3b242463e4dc1f2f56b02a032d3797d933816f15e555"
+    },
+    AfterBlockHeight = 6238675
+};
+AddressTransaction[] credentialTransactions = addressClient
+.GetCredentialTransactions(credentialTransactionRequest).Result;
 ```
