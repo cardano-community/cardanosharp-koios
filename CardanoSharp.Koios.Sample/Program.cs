@@ -9,6 +9,7 @@ var epochClient = RestService.For<IEpochClient>("https://api.koios.rest/api/v0")
 var blockClient = RestService.For<IBlockClient>("https://api.koios.rest/api/v0");
 var transactionClient = RestService.For<ITransactionClient>("https://api.koios.rest/api/v0");
 var addressClient = RestService.For<IAddressClient>("https://api.koios.rest/api/v0");
+var accountClient = RestService.For<IAccountClient>("https://api.koios.rest/api/v0");
 
 // Query Chain Tip
 Console.WriteLine("Query Chain Tip");
@@ -177,5 +178,69 @@ var credentialTransactions = addressClient
 foreach (var ct in credentialTransactions)
 {
     Console.WriteLine(JsonSerializer.Serialize(ct));
+}
+Console.WriteLine();
+
+// Get All Stake Accounts
+Console.WriteLine("Get All Stake Accounts");
+var stakeAccounts = accountClient.GetAllStakeAccounts().Result;
+foreach (var sa in stakeAccounts)
+{
+    Console.WriteLine(JsonSerializer.Serialize(sa));
+}
+Console.WriteLine();
+
+// Get Stake Information
+Console.WriteLine("Get Stake Information");
+var stakeAddress = "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz";
+var stakeInformation = accountClient.GetStakeInformation(stakeAddress).Result;
+foreach (var si in stakeInformation)
+{
+    Console.WriteLine(JsonSerializer.Serialize(si));
+}
+Console.WriteLine();
+
+// Get Stake Rewards
+Console.WriteLine("Get Stake Rewards");
+var stakeRewards = accountClient.GetStakeRewards(stakeAddress).Result;
+foreach (var sr in stakeRewards)
+{
+    Console.WriteLine(JsonSerializer.Serialize(sr));
+}
+Console.WriteLine();
+
+// Get Stake Updates
+Console.WriteLine("Get Stake Updates");
+var stakeUpdates = accountClient.GetStakeUpdates(stakeAddress).Result;
+foreach (var su in stakeUpdates)
+{
+    Console.WriteLine(JsonSerializer.Serialize(su));
+}
+Console.WriteLine();
+
+// Get Stake Addresses
+Console.WriteLine("Get Stake Addresses");
+var stakeAddresses = accountClient.GetStakeAddresses(stakeAddress).Result;
+foreach (var sa in stakeAddresses)
+{
+    Console.WriteLine(JsonSerializer.Serialize(sa));
+}
+Console.WriteLine();
+
+// Get Stake Assets
+Console.WriteLine("Get Stake Assets");
+var stakeAssets = accountClient.GetStakeAssets(stakeAddress).Result;
+foreach (var sa in stakeAssets)
+{
+    Console.WriteLine(JsonSerializer.Serialize(sa));
+}
+Console.WriteLine();
+
+// Get Stake History
+Console.WriteLine("Get Stake History");
+var stakeHistory = accountClient.GetStakeHistory(stakeAddress).Result;
+foreach (var sh in stakeHistory)
+{
+    Console.WriteLine(JsonSerializer.Serialize(sh));
 }
 Console.WriteLine();

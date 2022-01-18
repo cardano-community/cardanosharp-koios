@@ -201,3 +201,60 @@ var credentialTransactionRequest = new CredentialTransactionRequest()
 AddressTransaction[] credentialTransactions = addressClient
 .GetCredentialTransactions(credentialTransactionRequest).Result;
 ```
+
+## Account
+
+Get instance of the `IAccountClient`
+
+```cs
+// Simple Resolution
+IAccountClient accountClient = RestService.For<IAccountClient>("https://api.koios.rest/api/v0");
+```
+
+### Get All Stake Accounts
+
+```cs
+StakeAccount[] stakeAccounts = accountClient.GetAllStakeAccounts().Result;
+```
+
+### Get Stake Information
+
+```cs
+var stakeAddress = "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz";
+StakeInformation[] stakeInformation = accountClient.GetStakeInformation(stakeAddress).Result;
+```
+
+### Get Stake Rewards
+
+```cs
+var stakeAddress = "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz";
+StakeReward[] stakeRewards = accountClient.GetStakeRewards(stakeAddress).Result;
+```
+
+### Get Stake Updates
+
+```cs
+var stakeAddress = "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz";
+StakeUpdate[] stakeUpdates = accountClient.GetStakeUpdates(stakeAddress).Result;
+```
+
+### Get Stake Addresses
+
+```cs
+var stakeAddress = "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz";
+StakeAddress[] stakeAddresses = accountClient.GetStakeAddresses(stakeAddress).Result;
+```
+
+### Get Stake Assets
+
+```cs
+var stakeAddress = "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz";
+StakeAsset[] stakeAssets = accountClient.GetStakeAssets(stakeAddress).Result;
+```
+
+### Get Stake History
+
+```cs
+var stakeAddress = "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz";
+StakeHistory[] stakeHistory = accountClient.GetStakeHistory(stakeAddress).Result;
+```
