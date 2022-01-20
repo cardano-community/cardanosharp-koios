@@ -12,6 +12,7 @@ var addressClient = RestService.For<IAddressClient>("https://api.koios.rest/api/
 var accountClient = RestService.For<IAccountClient>("https://api.koios.rest/api/v0");
 var assetClient = RestService.For<IAssetClient>("https://api.koios.rest/api/v0");
 var poolClient = RestService.For<IPoolClient>("https://api.koios.rest/api/v0");
+var scriptClient = RestService.For<IScriptClient>("https://api.koios.rest/api/v0");
 
 // Query Chain Tip
 Console.WriteLine("Query Chain Tip");
@@ -339,5 +340,24 @@ var poolMetadata = poolClient.GetMetadata().Result;
 foreach (var pm in poolMetadata)
 {
     Console.WriteLine(JsonSerializer.Serialize(pm));
+}
+Console.WriteLine();
+
+// Get Script List
+Console.WriteLine("Get Script List");
+var scriptList = scriptClient.GetList().Result;
+foreach (var sl in scriptList)
+{
+    Console.WriteLine(JsonSerializer.Serialize(sl));
+}
+Console.WriteLine();
+
+// Get Script Redeemers
+Console.WriteLine("Get Script Redeemers");
+var scriptHash = "d8480dc869b94b80e81ec91b0abe307279311fe0e7001a9488f61ff8";
+var scriptRedeemers = scriptClient.GetRedeemers(scriptHash).Result;
+foreach (var sr in scriptRedeemers)
+{
+    Console.WriteLine(JsonSerializer.Serialize(sr));
 }
 Console.WriteLine();

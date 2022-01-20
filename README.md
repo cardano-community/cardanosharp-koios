@@ -258,3 +258,115 @@ StakeAsset[] stakeAssets = accountClient.GetStakeAssets(stakeAddress).Result;
 var stakeAddress = "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz";
 StakeHistory[] stakeHistory = accountClient.GetStakeHistory(stakeAddress).Result;
 ```
+
+## Assets
+
+Get instance of the `IAssetClient`
+
+```cs
+// Simple Resolution
+IAssetClient assetClient = RestService.For<IAssetClient>("https://api.koios.rest/api/v0");
+```
+
+### Get Asset Address List
+
+```cs
+var policyId = "d3501d9531fcc25e3ca4b6429318c2cc374dbdbcf5e99c1c1e5da1ff";
+var assetName = "444f4e545350414d";
+AssetAddress[] assetAddresses = assetClient.GetAddresses(policyId, assetName).Result;
+```
+
+### Get Asset Information
+
+```cs
+var policyId = "d3501d9531fcc25e3ca4b6429318c2cc374dbdbcf5e99c1c1e5da1ff";
+var assetName = "444f4e545350414d";
+AssetInformation[] assetInformations = assetClient.GetInfo(policyId, assetName).Result;
+```
+
+### Get Asset Transactions
+
+```cs
+var policyId = "d3501d9531fcc25e3ca4b6429318c2cc374dbdbcf5e99c1c1e5da1ff";
+var assetName = "444f4e545350414d";
+AssetTransaction[] assetTransactions = assetClient.GetTransactions(policyId, assetName).Result;
+```
+
+## Pool
+
+Get instance of the `IPoolClient`
+
+```cs
+// Simple Resolution
+IPoolClient poolClient = RestService.For<IPoolClient>("https://api.koios.rest/api/v0");
+```
+
+### Get Pool List
+
+```cs
+PoolList[] poolList = poolClient.GetList().Result;
+```
+
+### Get Pool Information
+
+```cs
+var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
+PoolInformation[] poolInformations = poolClient.GetInformation(poolBech32).Result;
+```
+
+### Get Pool Delegators
+
+```cs
+var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
+var epochNo = "294"; //optional
+PoolDelegator[] poolDelegators = poolClient.GetDelegators(poolBech32, epochNo).Result;
+```
+
+### Get Pool Blocks
+
+```cs
+var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
+var epochNo = "294"; //optional
+PoolBlock[] poolBlocks = poolClient.GetBlocks(poolBech32, epochNo).Result;
+```
+
+### Get Pool Updates
+
+```cs
+var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
+PoolUpdate[] poolUpdates = poolClient.GetUpdates(poolBech32).Result;
+```
+
+### Get Pool Relays
+
+```cs
+PoolRelay[] poolRelays = poolClient.GetRelays().Result;
+```
+
+### Get Pool Metadata
+
+```cs
+PoolMetadata[] poolMetadata = poolClient.GetMetadata().Result;
+```
+
+## Script
+
+Get instance of the `IScriptClient`
+
+```cs
+// Simple Resolution
+IScriptClient scriptClient = RestService.For<IScriptClient>("https://api.koios.rest/api/v0");
+```
+
+### Get Script List
+
+```cs
+ScriptList[] scriptList = scriptClient.GetList().Result;
+```
+
+### Get Script Redeemers
+
+```cs
+var scriptHash = "d8480dc869b94b80e81ec91b0abe307279311fe0e7001a9488f61ff8";
+ScriptRedeemer[] scriptRedeemers = scriptClient.GetRedeemers(scriptHash).Result;
+```
