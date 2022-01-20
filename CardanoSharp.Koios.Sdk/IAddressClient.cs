@@ -8,14 +8,14 @@ namespace CardanoSharp.Koios.Sdk
 {
     public interface IAddressClient
     {
-        [Get("/address_info?_address={address}")]
-        Task<AddressInformation[]> GetAddressInformation(string address);
+        [Get("/address_info")]
+        Task<AddressInformation[]> GetAddressInformation([AliasAs("_address")] string address, int? limit = null, int? offset = null);
 
         [Post("/address_txs")]
-        Task<AddressTransaction[]> GetAddressTransactions([Body] AddressTransactionRequest request);
+        Task<AddressTransaction[]> GetAddressTransactions([Body] AddressTransactionRequest request, int? limit = null, int? offset = null);
 
         [Post("/credential_txs")]
-        Task<AddressTransaction[]> GetCredentialTransactions([Body] CredentialTransactionRequest request);
+        Task<AddressTransaction[]> GetCredentialTransactions([Body] CredentialTransactionRequest request, int? limit = null, int? offset = null);
     }
 
     public class AddressTransactionRequest

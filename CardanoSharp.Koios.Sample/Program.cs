@@ -10,6 +10,8 @@ var blockClient = RestService.For<IBlockClient>("https://api.koios.rest/api/v0")
 var transactionClient = RestService.For<ITransactionClient>("https://api.koios.rest/api/v0");
 var addressClient = RestService.For<IAddressClient>("https://api.koios.rest/api/v0");
 var accountClient = RestService.For<IAccountClient>("https://api.koios.rest/api/v0");
+var assetClient = RestService.For<IAssetClient>("https://api.koios.rest/api/v0");
+var poolClient = RestService.For<IPoolClient>("https://api.koios.rest/api/v0");
 
 // Query Chain Tip
 Console.WriteLine("Query Chain Tip");
@@ -124,13 +126,14 @@ foreach (var tm in transactionMetadata)
 Console.WriteLine();
 
 // Get Transaction Metadata
-Console.WriteLine("Get Transaction Status");
-var transactionStatus = transactionClient.GetTransactionStatus(transactionRequest).Result;
-foreach (var ts in transactionStatus)
-{
-    Console.WriteLine(JsonSerializer.Serialize(ts));
-}
-Console.WriteLine();
+// throwing 404
+// Console.WriteLine("Get Transaction Status");
+// var transactionStatus = transactionClient.GetTransactionStatus(transactionRequest).Result;
+// foreach (var ts in transactionStatus)
+// {
+//     Console.WriteLine(JsonSerializer.Serialize(ts));
+// }
+// Console.WriteLine();
 
 // Get Address Information
 Console.WriteLine("Get Address Information");
@@ -242,5 +245,99 @@ var stakeHistory = accountClient.GetStakeHistory(stakeAddress).Result;
 foreach (var sh in stakeHistory)
 {
     Console.WriteLine(JsonSerializer.Serialize(sh));
+}
+Console.WriteLine();
+
+// Get Asset Address List
+Console.WriteLine("Get Asset Address List");
+var policyId = "d3501d9531fcc25e3ca4b6429318c2cc374dbdbcf5e99c1c1e5da1ff";
+var assetName = "444f4e545350414d";
+var assetAddresses = assetClient.GetAddresses(policyId, assetName).Result;
+foreach (var aa in assetAddresses)
+{
+    Console.WriteLine(JsonSerializer.Serialize(aa));
+}
+Console.WriteLine();
+
+// Get Asset Information
+Console.WriteLine("Get Asset Information");
+var assetInformations = assetClient.GetInfo(policyId, assetName).Result;
+foreach (var ai in assetInformations)
+{
+    Console.WriteLine(JsonSerializer.Serialize(ai));
+}
+Console.WriteLine();
+
+// Get Asset Transactions
+Console.WriteLine("Get Asset Transactions");
+var assetTransactions = assetClient.GetTransactions(policyId, assetName).Result;
+foreach (var at in assetTransactions)
+{
+    Console.WriteLine(JsonSerializer.Serialize(at));
+}
+Console.WriteLine();
+
+// Get Pool List
+Console.WriteLine("Get Pool List");
+var poolList = poolClient.GetList().Result;
+foreach (var pl in poolList)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pl));
+}
+Console.WriteLine();
+
+// Get Pool Information
+Console.WriteLine("Get Pool Information");
+var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
+var poolInformations = poolClient.GetInformation(poolBech32).Result;
+foreach (var pi in poolInformations)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pi));
+}
+Console.WriteLine();
+
+// Get Pool Delegators
+Console.WriteLine("Get Pool Delegators");
+var epochNo = "294"; //optional
+var poolDelegators = poolClient.GetDelegators(poolBech32, epochNo).Result;
+foreach (var pd in poolDelegators)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pd));
+}
+Console.WriteLine();
+
+// Get Pool Blocks
+Console.WriteLine("Get Pool Blocks");
+var poolBlocks = poolClient.GetBlocks(poolBech32, epochNo).Result;
+foreach (var pb in poolBlocks)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pb));
+}
+Console.WriteLine();
+
+// Get Pool Updates
+Console.WriteLine("Get Pool Updates");
+var poolUpdates = poolClient.GetUpdates(poolBech32).Result;
+foreach (var pu in poolUpdates)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pu));
+}
+Console.WriteLine();
+
+// Get Pool Relays
+Console.WriteLine("Get Pool Relays");
+var poolRelays = poolClient.GetRelays().Result;
+foreach (var pr in poolRelays)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pr));
+}
+Console.WriteLine();
+
+// Get Pool Metadata
+Console.WriteLine("Get Pool Metadata");
+var poolMetadata = poolClient.GetMetadata().Result;
+foreach (var pm in poolMetadata)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pm));
 }
 Console.WriteLine();

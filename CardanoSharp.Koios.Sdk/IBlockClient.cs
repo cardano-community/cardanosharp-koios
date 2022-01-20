@@ -7,12 +7,12 @@ namespace CardanoSharp.Koios.Sdk
     public interface IBlockClient
     {
         [Get("/blocks")]
-        Task<Block[]> GetBlockList();
+        Task<Block[]> GetBlockList(int? limit = null, int? offset = null);
         
-        [Get("/block_info?_block_hash={blockHash}")]
-        Task<Block[]> GetBlockInfo(string blockHash);
+        [Get("/block_info")]
+        Task<Block[]> GetBlockInfo([AliasAs("_block_hash")] string blockHash, int? limit = null, int? offset = null);
         
-        [Get("/block_txs?_block_hash={blockHash}")]
-        Task<BlockTransaction[]> GetBlockTransactions(string blockHash);
+        [Get("/block_txs")]
+        Task<BlockTransaction[]> GetBlockTransactions([AliasAs("_block_hash")] string blockHash, int? limit = null, int? offset = null);
     }
 }

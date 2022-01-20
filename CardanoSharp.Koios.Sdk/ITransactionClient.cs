@@ -9,16 +9,16 @@ namespace CardanoSharp.Koios.Sdk
     public interface ITransactionClient
     {
         [Post("/tx_info")]
-        Task<Transaction[]> GetTransactionInformation([Body] GetTransactionRequest request);
+        Task<Transaction[]> GetTransactionInformation([Body] GetTransactionRequest request, int? limit = null, int? offset = null);
         
         [Post("/tx_utxos")]
-        Task<Transaction[]> GetTransactionUtxos([Body] GetTransactionRequest request);
+        Task<Transaction[]> GetTransactionUtxos([Body] GetTransactionRequest request, int? limit = null, int? offset = null);
         
         [Post("/tx_metadata")]
-        Task<TransactionMetadata[]> GetTransactionMetadata([Body] GetTransactionRequest request);
+        Task<TransactionMetadata[]> GetTransactionMetadata([Body] GetTransactionRequest request, int? limit = null, int? offset = null);
         
         [Post("/tx_status")]
-        Task<TransactionStatus[]> GetTransactionStatus([Body] GetTransactionRequest request);
+        Task<TransactionStatus[]> GetTransactionStatus([Body] GetTransactionRequest request, int? limit = null, int? offset = null);
     }
 
     public class GetTransactionRequest

@@ -12,7 +12,7 @@ namespace CardanoSharp.Koios.Sdk
         [Get("/genesis")]
         Task<GenesisParameters[]> GetGenesisInfo();
 
-        [Get("/totals?_epoch_no={epoch}")]
-        Task<TokenomicStats[]> GetHistoricalTokenomicStats(string epoch);
+        [Get("/totals")]
+        Task<TokenomicStats[]> GetHistoricalTokenomicStats([AliasAs("_epoch_no")] string epoch, int? limit = null, int? offset = null);
     }
 }
