@@ -7,9 +7,9 @@ namespace CardanoSharp.Koios.Sdk
     public interface IEpochClient
     {
         [Get("/epoch_info")]
-        Task<EpochInformation[]> GetEpochInformation(int? limit = null, int? offset = null);
+        Task<EpochInformation[]> GetEpochInformation([AliasAs("_epoch_no")] string? epochNo = null, int? limit = null, int? offset = null);
         
         [Get("/epoch_params")]
-        Task<ProtocolParameters[]> GetProtocolParameters([AliasAs("_epoch_no")] string epoch, int? limit = null, int? offset = null);
+        Task<ProtocolParameters[]> GetProtocolParameters([AliasAs("_epoch_no")] string? epochNo = null, int? limit = null, int? offset = null);
     }
 }
