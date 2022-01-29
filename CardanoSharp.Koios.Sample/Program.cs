@@ -288,17 +288,19 @@ foreach (var pl in poolList)
 Console.WriteLine();
 
 // Get Pool Information
-Console.WriteLine("Get Pool Information");
-var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
-var poolInformations = poolClient.GetInformation(poolBech32).Result;
-foreach (var pi in poolInformations)
-{
-    Console.WriteLine(JsonSerializer.Serialize(pi));
-}
-Console.WriteLine();
+// throwing 404
+// Console.WriteLine("Get Pool Information");
+// var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
+// var poolInformations = poolClient.GetInformation(poolBech32).Result;
+// foreach (var pi in poolInformations)
+// {
+//     Console.WriteLine(JsonSerializer.Serialize(pi));
+// }
+// Console.WriteLine();
 
 // Get Pool Delegators
 Console.WriteLine("Get Pool Delegators");
+var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
 var epochNo = "294"; //optional
 var poolDelegators = poolClient.GetDelegators(poolBech32, epochNo).Result;
 foreach (var pd in poolDelegators)

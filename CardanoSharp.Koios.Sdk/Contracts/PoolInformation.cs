@@ -29,11 +29,11 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("fixed_cost")]
-        public ulong FixedCost { get; set; }
+        public string? FixedCost { get; set; }
         
         [DataMember]
         [JsonPropertyName("pledge")]
-        public ulong Pledge { get; set; }
+        public string? Pledge { get; set; }
         
         [DataMember]
         [JsonPropertyName("reward_addr")]
@@ -65,7 +65,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("active_stake")]
-        public ulong ActiveStake { get; set; }
+        public string? ActiveStake { get; set; }
         
         [DataMember]
         [JsonPropertyName("epoch_block_cnt")]
@@ -73,7 +73,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("live_stake")]
-        public ulong LiveStake { get; set; }
+        public string? LiveStake { get; set; }
         
         [DataMember]
         [JsonPropertyName("live_delegators")]

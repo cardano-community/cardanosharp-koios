@@ -46,15 +46,15 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("total_output")]
-        public ulong TotalOutput { get; set; }
+        public string? TotalOutput { get; set; }
         
         [DataMember]
         [JsonPropertyName("fee")]
-        public uint Fee { get; set; }
+        public string? Fee { get; set; }
         
         [DataMember]
         [JsonPropertyName("deposit")]
-        public uint Deposit { get; set; }
+        public string? Deposit { get; set; }
         
         [DataMember]
         [JsonPropertyName("invalid_before")]
@@ -109,7 +109,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("value")]
-        public ulong Value { get; set; }
+        public string? Value { get; set; }
         
         [DataMember]
         [JsonPropertyName("asset_list")]
@@ -139,7 +139,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("quantity")]
-        public ulong Quantity { get; set; }
+        public string? Quantity { get; set; }
     }
 
     public class TransactionWithdrawal
@@ -150,7 +150,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("amount")]
-        public ulong Amount { get; set; }
+        public string? Amount { get; set; }
     }
 
     public class Metadata

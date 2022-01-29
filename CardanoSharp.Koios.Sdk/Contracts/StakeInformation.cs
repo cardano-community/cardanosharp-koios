@@ -16,30 +16,30 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("total_balance")]
-        public ulong TotalBalance { get; set; }
+        public string? TotalBalance { get; set; }
         
         [DataMember]
         [JsonPropertyName("utxo")]
-        public ulong Utxo { get; set; }
+        public string? Utxo { get; set; }
         
         [DataMember]
         [JsonPropertyName("rewards")]
-        public ulong Rewards { get; set; }
+        public string? Rewards { get; set; }
         
         [DataMember]
         [JsonPropertyName("withdrawals")]
-        public ulong Withdrawals { get; set; }
+        public string? Withdrawals { get; set; }
         
         [DataMember]
         [JsonPropertyName("rewards_available")]
-        public ulong RewardsAvailable { get; set; }
+        public string? RewardsAvailable { get; set; }
         
         [DataMember]
         [JsonPropertyName("reserves")]
-        public long Reserves { get; set; }
+        public string? Reserves { get; set; }
         
         [DataMember]
         [JsonPropertyName("treasury")]
-        public ulong Treasury { get; set; }
+        public string? Treasury { get; set; }
     }
 }

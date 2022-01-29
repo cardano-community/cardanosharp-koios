@@ -21,6 +21,6 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("active_stake")]
-        public ulong ActiveStake { get; set; }
+        public string? ActiveStake { get; set; }
     }
 }

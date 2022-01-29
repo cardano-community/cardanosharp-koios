@@ -13,11 +13,11 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("out_sum")]
-        public ulong OutSum { get; set; }
+        public string? OutSum { get; set; }
         
         [DataMember]
         [JsonPropertyName("fees")]
-        public ulong Fees { get; set; }
+        public string? Fees { get; set; }
         
         [DataMember]
         [JsonPropertyName("tx_count")]
@@ -37,6 +37,6 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("active_stake")]
-        public ulong ActiveStake { get; set; }
+        public string? ActiveStake { get; set; }
     }
 }

@@ -35,8 +35,24 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         [JsonPropertyName("value")]
         public string? Value { get; set; }
         
-        //asset_list missing
-        //TODO need schema for asset_list 
-        //I have a hunch it is just TransactionAsset
+        [DataMember]
+        [JsonPropertyName("asset_list")]
+        public List<AddressAsset> AssetList { get; set; }
+    }    
+    
+    [DataContract]
+    public class AddressAsset
+    {
+        [DataMember]
+        [JsonPropertyName("policy_id")]
+        public string? PolicyId { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("asset_name")]
+        public string? AssetName { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("quantity")]
+        public string? Quantity { get; set; }
     }
 }

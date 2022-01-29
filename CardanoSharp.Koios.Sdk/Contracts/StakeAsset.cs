@@ -16,6 +16,6 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("quantity")]
-        public ulong Quantity { get; set; }
+        public string? Quantity { get; set; }
     }
 }

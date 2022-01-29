@@ -33,7 +33,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("total_supply")]
-        public ulong TotalSupply { get; set; }
+        public string? TotalSupply { get; set; }
         
         [DataMember]
         [JsonPropertyName("creation_time")]

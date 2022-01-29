@@ -12,22 +12,22 @@ namespace CardanoSharp.Koios.Sdk.Contracts
 
         [DataMember]
         [JsonPropertyName("circulation")]
-        public ulong Circulation { get; set; }
+        public string? Circulation { get; set; }
 
         [DataMember]
         [JsonPropertyName("treasury")]
-        public ulong Treasury { get; set; }
+        public string? Treasury { get; set; }
 
         [DataMember]
         [JsonPropertyName("reward")]
-        public ulong Reward { get; set; }
+        public string? Reward { get; set; }
 
         [DataMember]
         [JsonPropertyName("supply")]
-        public ulong Supply { get; set; }
+        public string? Supply { get; set; }
 
         [DataMember]
         [JsonPropertyName("reserves")]
-        public ulong Reserves { get; set; }
+        public string? Reserves { get; set; }
     }
 }
