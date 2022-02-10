@@ -287,16 +287,23 @@ foreach (var pl in poolList)
 }
 Console.WriteLine();
 
-// Get Pool Information
-// throwing 404
-// Console.WriteLine("Get Pool Information");
-// var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
-// var poolInformations = poolClient.GetInformation(poolBech32).Result;
-// foreach (var pi in poolInformations)
-// {
-//     Console.WriteLine(JsonSerializer.Serialize(pi));
-// }
-// Console.WriteLine();
+//Get Pool Information
+Console.WriteLine("Get Pool Information");
+var poolBech32Ids = new PoolInformationRequest()
+{
+    PoolBech32Ids = new List<string>()
+    {
+        "pool100wj94uzf54vup2hdzk0afng4dhjaqggt7j434mtgm8v2gfvfgp",
+        "pool102s2nqtea2hf5q0s4amj0evysmfnhrn4apyyhd4azcmsclzm96m",
+        "pool102vsulhfx8ua2j9fwl2u7gv57fhhutc3tp6juzaefgrn7ae35wm"
+    }
+};
+var poolInformations = poolClient.GetInformation(poolBech32Ids).Result;
+foreach (var pi in poolInformations)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pi));
+}
+Console.WriteLine();
 
 // Get Pool Delegators
 Console.WriteLine("Get Pool Delegators");

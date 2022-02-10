@@ -12,8 +12,8 @@ namespace CardanoSharp.Koios.Sdk
         [Get("/pool_list")]
         Task<PoolItem[]> GetList(int? limit = null, int? offset = null);
 
-        [Get("/pool_info")]
-        Task<PoolInformation[]> GetInformation([AliasAs("_pool_bech32")] string poolBech32, int? limit = null, int? offset = null);
+        [Post("/pool_info")]
+        Task<PoolInformation[]> GetInformation([Body] PoolInformationRequest poolBech32, int? limit = null, int? offset = null);
 
         [Get("/pool_delegators")]
         Task<PoolDelegator[]> GetDelegators([AliasAs("_pool_bech32")] string poolBech32,
@@ -31,5 +31,11 @@ namespace CardanoSharp.Koios.Sdk
         
         [Get("/pool_metadata")]
         Task<PoolMetadata[]> GetMetadata(int? limit = null, int? offset = null);
+    }
+
+    public class PoolInformationRequest
+    {
+        [JsonPropertyName("_pool_bech32_ids")]
+        public List<string> PoolBech32Ids { get; set; }
     }
 }

@@ -61,15 +61,15 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("op_cert_counter")]
-        public uint OpCertCounter { get; set; }
+        public uint? OpCertCounter { get; set; }
         
         [DataMember]
         [JsonPropertyName("active_stake")]
         public string? ActiveStake { get; set; }
         
         [DataMember]
-        [JsonPropertyName("epoch_block_cnt")]
-        public uint EpochBlockCount { get; set; }
+        [JsonPropertyName("block_count")]
+        public uint? BlockCount { get; set; }
         
         [DataMember]
         [JsonPropertyName("live_stake")]
