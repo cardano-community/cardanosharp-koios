@@ -12,7 +12,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         public string? Hash { get; set; }
 
         [DataMember]
-        [JsonPropertyName("epoch")]
+        [JsonPropertyName("epoch_no")]
         public uint Epoch { get; set; }
 
         [DataMember]
