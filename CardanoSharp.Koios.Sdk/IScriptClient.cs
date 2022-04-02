@@ -6,7 +6,7 @@ namespace CardanoSharp.Koios.Sdk
 {
     public interface IScriptClient
     {
-        [Get("/script_list")]
+        [Get("/native_script_list")]
         Task<ScriptItem[]> GetList(int? limit = null, int? offset = null);
 
         [Get("/script_redeemers")]
