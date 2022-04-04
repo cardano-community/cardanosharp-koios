@@ -157,7 +157,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
     {
         [DataMember]
         [JsonPropertyName("key")]
-        public uint Key { get; set; }
+        public string? Key { get; set; }
         
         [DataMember]
         [JsonPropertyName("json")]
