@@ -172,7 +172,7 @@ IAddressClient addressClient = RestService.For<IAddressClient>("https://api.koio
 var address = "addr1qyp9kz50sh9c53hpmk3l4ewj9ur794t2hdqpngsjn3wkc5sztv9glpwt3frwrhdrltjaytc8ut2k4w6qrx3p98zad3fq07xe9g";
 AddressInformation[] addressInformation = addressClient.GetAddressInformation(address).Result;
 ```
-### Get Address Information
+### Get Address Transactions
 
 ```cs
 var addressTransactionRequest = new AddressTransactionRequest()
@@ -186,7 +186,14 @@ var addressTransactionRequest = new AddressTransactionRequest()
 };
 AddressTransaction[] addressTransactions = addressClient.GetAddressTransactions(addressTransactionRequest).Result;
 ```
-### Get Address Information
+### Get Address Assets
+
+```cs
+var address = "addr1q8h22z0n3zqecr9n4q9ysds2m2ms3dqesz575accjpc3jclw55yl8zypnsxt82q2fqmq4k4hpz6pnq9fafm33yr3r93sgnpdw6";
+AddressAssets[] addressAssets = addressClient
+.GetAddressAssets(address).Result;
+```
+### Get Transactions from Payment Credentials
 
 ```cs
 var credentialTransactionRequest = new CredentialTransactionRequest()
@@ -358,10 +365,16 @@ Get instance of the `IScriptClient`
 IScriptClient scriptClient = RestService.For<IScriptClient>("https://api.koios.rest/api/v0");
 ```
 
-### Get Script List
+### Get Native Script List
 
 ```cs
-ScriptList[] scriptList = scriptClient.GetList().Result;
+ScriptList[] scriptList = scriptClient.GetNativeList().Result;
+```
+
+### Get Plutus Script List
+
+```cs
+ScriptList[] scriptList = scriptClient.GetPlutusList().Result;
 ```
 
 ### Get Script Redeemers

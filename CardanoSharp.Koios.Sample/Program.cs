@@ -158,12 +158,23 @@ var addressTransactionRequest = new AddressTransactionRequest()
     AfterBlockHeight = 6238675
 };
 
-// Get Address Information
-Console.WriteLine("Get Address Information");
+// Get Address Transactions
+Console.WriteLine("Get Address Transactions");
 var addressTransactions = addressClient.GetAddressTransactions(addressTransactionRequest).Result;
 foreach (var at in addressTransactions)
 {
     Console.WriteLine(JsonSerializer.Serialize(at));
+}
+Console.WriteLine();
+
+// Get Address Assets
+Console.WriteLine("Get Address Assets");
+var addressForAssets =
+    "addr1q8h22z0n3zqecr9n4q9ysds2m2ms3dqesz575accjpc3jclw55yl8zypnsxt82q2fqmq4k4hpz6pnq9fafm33yr3r93sgnpdw6";
+var addressAssets = addressClient.GetAddressAssets(addressForAssets).Result;
+foreach (var aa in addressAssets)
+{
+    Console.WriteLine(JsonSerializer.Serialize(aa));
 }
 Console.WriteLine();
 
@@ -177,7 +188,7 @@ var credentialTransactionRequest = new CredentialTransactionRequest()
     AfterBlockHeight = 6238675
 };
 
-// Get Transactions from payment credentials
+// Get Transactions from Payment Credentials
 Console.WriteLine("Get Transactions from payment credentials");
 var credentialTransactions = addressClient
     .GetCredentialTransactions(credentialTransactionRequest).Result;
@@ -354,10 +365,19 @@ foreach (var pm in poolMetadata)
 }
 Console.WriteLine();
 
-// Get Script List
-Console.WriteLine("Get Script List");
-var scriptList = scriptClient.GetList().Result;
-foreach (var sl in scriptList)
+// Get Native Script List
+Console.WriteLine("Get Native Script List");
+var scriptNativeList = scriptClient.GetNativeList().Result;
+foreach (var sl in scriptNativeList)
+{
+    Console.WriteLine(JsonSerializer.Serialize(sl));
+}
+Console.WriteLine();
+
+// Get Plutus Script List
+Console.WriteLine("Get Plutus Script List");
+var scriptPlutusList = scriptClient.GetPlutusList().Result;
+foreach (var sl in scriptPlutusList)
 {
     Console.WriteLine(JsonSerializer.Serialize(sl));
 }

@@ -13,6 +13,8 @@ namespace CardanoSharp.Koios.Sdk
 
         [Post("/address_txs")]
         Task<AddressTransaction[]> GetAddressTransactions([Body] AddressTransactionRequest request, int? limit = null, int? offset = null);
+        [Get("/address_assets")]
+        Task<AddressAsset[]> GetAddressAssets([AliasAs("_address")] string address, int? limit = null, int? offset = null);
 
         [Post("/credential_txs")]
         Task<AddressTransaction[]> GetCredentialTransactions([Body] CredentialTransactionRequest request, int? limit = null, int? offset = null);

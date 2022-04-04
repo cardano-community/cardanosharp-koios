@@ -13,5 +13,9 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         [DataMember]
         [JsonPropertyName("creation_tx_hash")]
         public string? CreationTxHash { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
     }
 }
