@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <Nullable>enable</Nullable>
-        <Version>4.1.0</Version>
+        <Version>4.2.0</Version>
     </PropertyGroup>
 
     <ItemGroup>

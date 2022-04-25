@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using CardanoSharp.Koios.Sdk.Contracts;
@@ -19,6 +20,10 @@ namespace CardanoSharp.Koios.Sdk
         
         [Post("/tx_status")]
         Task<TransactionStatus[]> GetTransactionStatus([Body] GetTransactionRequest request, int? limit = null, int? offset = null);
+        
+        [Headers("Content-Type: application/cbor")]
+        [Post("/submittx")]
+        Task<string> Submit([Body] Stream request);
     }
 
     public class GetTransactionRequest

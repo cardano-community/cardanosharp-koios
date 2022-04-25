@@ -2,6 +2,7 @@
 
 using System.Text.Json;
 using CardanoSharp.Koios.Sdk;
+using CardanoSharp.Koios.Sdk.Extensions;
 using Refit;
 
 var networkClient = RestService.For<INetworkClient>("https://api.koios.rest/api/v0");
@@ -13,6 +14,7 @@ var accountClient = RestService.For<IAccountClient>("https://api.koios.rest/api/
 var assetClient = RestService.For<IAssetClient>("https://api.koios.rest/api/v0");
 var poolClient = RestService.For<IPoolClient>("https://api.koios.rest/api/v0");
 var scriptClient = RestService.For<IScriptClient>("https://api.koios.rest/api/v0");
+
 
 // Query Chain Tip
 Console.WriteLine("Query Chain Tip");
@@ -137,6 +139,21 @@ Console.WriteLine();
 //     Console.WriteLine(JsonSerializer.Serialize(ts));
 // }
 // Console.WriteLine();
+
+//Submit Transaction Example
+//this produced this https://testnet.cardanoscan.io/transaction/3e30d5012bdea1ffa667f0dbbac647ef5b74acb0c747af89657cc9456ad39df7
+// var txId = string.Empty;
+// string signedTxStr = "83a6008182582084c204d1a649fa8fe0a7d50989465baf71d2a371a886d1344395b8316bd3abfb00018282583900550c1b4b5deeea285479bbbc331d78220dc813b3636808186fad1b2154a7f74869944ecbe91d8e8de2642c172c620520cda6d3d29cdbfa48821a001e8480a1581c4d3b2796fd8b9b2242699b1dd1c6aa5e079bd2ceb084aeba664cbfeda14d53686172704e6f7465626f6f6b0182583900ff13307529d67cc23a1bde15c67c2f1410ecfcbb1b03fbe11cd26920e0094f2b527fd1c46d28f707b01a5566876137a4fd62cc0740fb6c4e1a0076d6b3021a00033b4d031a035ec095075820b9cd4185d6dec9954c6534c63aac48dfa540de027c647e7d5a1e39b661d091c809a1581c4d3b2796fd8b9b2242699b1dd1c6aa5e079bd2ceb084aeba664cbfeda14d53686172704e6f7465626f6f6b01a20082825820ec96948e3dc78e245ba9fd57c91dc4099c36be848e3d9a593b202ef01d2c47e65840ea0f581b8d712fad1b0c5723048d27b5f4e49fc63e4c9c55545a4156c1f754ad34b74195adb8d89cbaef0bc11d7123a5e3cbcb2f91a412f8b073cba13a86c70482582095a193e076285356c3a8294f4e6c22e5d2023af48ca672ba7e18af4788ccd563584036acf806251117254b945b6b6ca40d18074e923158f4fc18ac8bad8ef861277c3785cb06d82cda613d3d8ca9d152bafbdd36293ad783471108ea31aae9e7a90a01818201818200581c39cb1fd8aa0778a0ac171eaf6e4e4f945516efa429a77611c3fa7f1e82a1190539a2657469746c65782043617264616e6f5368617270204b6f696f73205478205375626d697373696f6e676d657373616765781f43617264616e6f5368617270202b204b6f696f73203d20537563636573732180";
+// byte[] signedTx = signedTxStr.HexToByteArray();
+// try
+// {
+//     using (MemoryStream stream = new MemoryStream(signedTx))
+//         txId = await transactionClient.Submit(stream);
+// }
+// catch(Exception e)
+// {
+//     txId = e.Message;
+// }
 
 // Get Address Information
 Console.WriteLine("Get Address Information");
