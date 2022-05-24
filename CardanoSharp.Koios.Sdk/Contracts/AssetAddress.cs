@@ -5,10 +5,13 @@ namespace CardanoSharp.Koios.Sdk.Contracts
 {
     [DataContract]
     public class AssetAddress
-    {
+    {        
+        ///<summary>
+        ///Refered to as "payment_address" in the koios docs.
+        ///</summary>
         [DataMember]
         [JsonPropertyName("payment_address")]
-        public string? PaymentAddress { get; set; }
+        public string? Address { get; set; }
         
         [DataMember]
         [JsonPropertyName("quantity")]
