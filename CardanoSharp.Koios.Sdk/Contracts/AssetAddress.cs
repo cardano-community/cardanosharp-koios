@@ -7,8 +7,8 @@ namespace CardanoSharp.Koios.Sdk.Contracts
     public class AssetAddress
     {
         [DataMember]
-        [JsonPropertyName("address")]
-        public string? Address { get; set; }
+        [JsonPropertyName("payment_address")]
+        public string? PaymentAddress { get; set; }
         
         [DataMember]
         [JsonPropertyName("quantity")]
