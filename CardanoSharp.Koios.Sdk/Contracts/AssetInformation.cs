@@ -24,6 +24,10 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         public string? Fingerprint { get; set; }
         
         [DataMember]
+        [JsonPropertyName("minting_tx_hash")]
+        public string? MintingTxHash { get; set; }
+        
+        [DataMember]
         [JsonPropertyName("minting_tx_metadata")]
         public object MintingTxMetadata { get; set; }
         
@@ -38,5 +42,13 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         [DataMember]
         [JsonPropertyName("creation_time")]
         public DateTime CreationTime { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("mint_cnt")]
+        public ulong MintCount { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("burn_cnt")]
+        public ulong BurnCount { get; set; }
     }
 }
