@@ -23,7 +23,7 @@ namespace CardanoSharp.Koios.Sdk
         Task<StakeAddress[]> GetStakeAddresses([AliasAs("_address")] string address, int? limit = null, int? offset = null);
 
         [Get("/account_assets")]
-        Task<StakeAsset[]> GetStakeAssets([AliasAs("_address")] string address, int? limit = null, int? offset = null);
+        Task<StakeAsset[]> GetStakeAssets([AliasAs("_address")] string address, [AliasAs("asset_name")] string assetName = null, [AliasAs("asset_policy")] string assetPolicy = null, int? limit = null, int? offset = null);
 
         [Get("/account_history")]
         Task<StakeHistory[]> GetStakeHistory([AliasAs("_address")] string address, int? limit = null, int? offset = null);
