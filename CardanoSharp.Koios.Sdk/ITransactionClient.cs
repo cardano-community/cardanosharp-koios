@@ -10,20 +10,32 @@ namespace CardanoSharp.Koios.Sdk
     public interface ITransactionClient
     {
         [Post("/tx_info")]
-        Task<Transaction[]> GetTransactionInformation([Body] GetTransactionRequest request, int? limit = null, int? offset = null);
+        Task<ApiResponse<Transaction[]>> GetTransactionInformation([Body] GetTransactionRequest request, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
         
         [Post("/tx_utxos")]
-        Task<Transaction[]> GetTransactionUtxos([Body] GetTransactionRequest request, int? limit = null, int? offset = null);
+        Task<ApiResponse<Transaction[]>> GetTransactionUtxos([Body] GetTransactionRequest request, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
         
         [Post("/tx_metadata")]
-        Task<TransactionMetadata[]> GetTransactionMetadata([Body] GetTransactionRequest request, int? limit = null, int? offset = null);
+        Task<ApiResponse<TransactionMetadata[]>> GetTransactionMetadata([Body] GetTransactionRequest request, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
         
         [Post("/tx_status")]
-        Task<TransactionStatus[]> GetTransactionStatus([Body] GetTransactionRequest request, int? limit = null, int? offset = null);
+        Task<ApiResponse<TransactionStatus[]>> GetTransactionStatus([Body] GetTransactionRequest request, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
         
         [Headers("Content-Type: application/cbor")]
         [Post("/submittx")]
-        Task<string> Submit([Body] Stream request);
+        Task<ApiResponse<string>> Submit([Body] Stream request);
     }
 
     public class GetTransactionRequest

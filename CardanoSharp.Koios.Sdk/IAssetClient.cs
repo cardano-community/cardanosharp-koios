@@ -7,15 +7,24 @@ namespace CardanoSharp.Koios.Sdk
     public interface IAssetClient
     {
         [Get("/asset_address_list")]
-        Task<AssetAddress[]> GetAddresses([AliasAs("_asset_policy")] string policyId,
-            [AliasAs("_asset_name")] string assetName, int? limit = null, int? offset = null);
+        Task<ApiResponse<AssetAddress[]>> GetAddresses([AliasAs("_asset_policy")] string policyId,
+            [AliasAs("_asset_name")] string assetName, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
         
         [Get("/asset_info")]
-        Task<AssetInformation[]> GetInfo([AliasAs("_asset_policy")] string policyId,
-            [AliasAs("_asset_name")] string assetName, int? limit = null, int? offset = null);
+        Task<ApiResponse<AssetInformation[]>> GetInfo([AliasAs("_asset_policy")] string policyId,
+            [AliasAs("_asset_name")] string assetName, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
         
         [Get("/asset_txs")]
-        Task<AssetTransaction[]> GetTransactions([AliasAs("_asset_policy")] string policyId,
-            [AliasAs("_asset_name")] string assetName, int? limit = null, int? offset = null);
+        Task<ApiResponse<AssetTransaction[]>> GetTransactions([AliasAs("_asset_policy")] string policyId,
+            [AliasAs("_asset_name")] string assetName, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
     }
 }

@@ -10,27 +10,45 @@ namespace CardanoSharp.Koios.Sdk
     public interface IPoolClient
     {
         [Get("/pool_list")]
-        Task<PoolItem[]> GetList(int? limit = null, int? offset = null);
+        Task<ApiResponse<PoolItem[]>> GetList([AliasAs("limit")]int? limit = null, 
+        [AliasAs("offset")]int? offset = null, 
+        [Header("Prefer")] string prefer = null);
 
         [Post("/pool_info")]
-        Task<PoolInformation[]> GetInformation([Body] PoolInformationRequest poolBech32, int? limit = null, int? offset = null);
+        Task<ApiResponse<PoolInformation[]>> GetInformation([Body] PoolInformationRequest poolBech32, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
 
         [Get("/pool_delegators")]
-        Task<PoolDelegator[]> GetDelegators([AliasAs("_pool_bech32")] string poolBech32,
-            [AliasAs("_epoch_no")] string? epochNo = null, int? limit = null, int? offset = null);
+        Task<ApiResponse<PoolDelegator[]>> GetDelegators([AliasAs("_pool_bech32")] string poolBech32,
+            [AliasAs("_epoch_no")] string? epochNo = null, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
 
         [Get("/pool_blocks")]
-        Task<PoolBlock[]> GetBlocks([AliasAs("_pool_bech32")] string poolBech32,
-            [AliasAs("_epoch_no")] string epochNo, int? limit = null, int? offset = null);
+        Task<ApiResponse<PoolBlock[]>> GetBlocks([AliasAs("_pool_bech32")] string poolBech32,
+            [AliasAs("_epoch_no")] string epochNo, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
 
         [Get("/pool_updates")]
-        Task<PoolUpdate[]> GetUpdates([AliasAs("_pool_bech32")] string poolBech32, int? limit = null, int? offset = null);
+        Task<ApiResponse<PoolUpdate[]>> GetUpdates([AliasAs("_pool_bech32")] string poolBech32, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
         
         [Get("/pool_relays")]
-        Task<PoolRelay[]> GetRelays(int? limit = null, int? offset = null);
+        Task<ApiResponse<PoolRelay[]>> GetRelays([AliasAs("limit")]int? limit = null, 
+        [AliasAs("offset")]int? offset = null, 
+        [Header("Prefer")] string prefer = null);
         
         [Get("/pool_metadata")]
-        Task<PoolMetadata[]> GetMetadata(int? limit = null, int? offset = null);
+        Task<ApiResponse<PoolMetadata[]>> GetMetadata([AliasAs("limit")]int? limit = null, 
+        [AliasAs("offset")]int? offset = null, 
+        [Header("Prefer")] string prefer = null);
     }
 
     public class PoolInformationRequest

@@ -8,13 +8,21 @@ namespace CardanoSharp.Koios.Sdk
     public interface IBlockClient
     {
         [Get("/blocks")]
-        Task<Block[]> GetBlockList(int? limit = null, int? offset = null);
+        Task<ApiResponse<Block[]>> GetBlockList([AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
         
         [Post("/block_info")]
-        Task<Block[]> GetBlockInfo([Body] GetBlockInformationRequest request, int? limit = null, int? offset = null);
+        Task<ApiResponse<Block[]>> GetBlockInfo([Body] GetBlockInformationRequest request, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
         
         [Get("/block_txs")]
-        Task<BlockTransaction[]> GetBlockTransactions([AliasAs("_block_hash")] string blockHash, int? limit = null, int? offset = null);
+        Task<ApiResponse<BlockTransaction[]>> GetBlockTransactions([AliasAs("_block_hash")] string blockHash, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
     }   
     
     public class GetBlockInformationRequest
