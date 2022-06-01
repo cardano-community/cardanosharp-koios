@@ -7,12 +7,15 @@ namespace CardanoSharp.Koios.Sdk
     public interface INetworkClient
     {
         [Get("/tip")]
-        Task<BlockSummary[]> GetChainTip();
+        Task<ApiResponse<BlockSummary[]>> GetChainTip();
 
         [Get("/genesis")]
-        Task<GenesisParameters[]> GetGenesisInfo();
+        Task<ApiResponse<GenesisParameters[]>> GetGenesisInfo();
 
         [Get("/totals")]
-        Task<TokenomicStats[]> GetHistoricalTokenomicStats([AliasAs("_epoch_no")] string epoch, int? limit = null, int? offset = null);
+        Task<ApiResponse<TokenomicStats[]>> GetHistoricalTokenomicStats([AliasAs("_epoch_no")] string epoch, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
     }
 }

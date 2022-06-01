@@ -9,15 +9,27 @@ namespace CardanoSharp.Koios.Sdk
     public interface IAddressClient
     {
         [Get("/address_info")]
-        Task<AddressInformation[]> GetAddressInformation([AliasAs("_address")] string address, int? limit = null, int? offset = null);
+        Task<ApiResponse<AddressInformation[]>> GetAddressInformation([AliasAs("_address")] string address, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
 
         [Post("/address_txs")]
-        Task<AddressTransaction[]> GetAddressTransactions([Body] AddressTransactionRequest request, int? limit = null, int? offset = null);
+        Task<ApiResponse<AddressTransaction[]>> GetAddressTransactions([Body] AddressTransactionRequest request, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
         [Get("/address_assets")]
-        Task<AddressAsset[]> GetAddressAssets([AliasAs("_address")] string address, int? limit = null, int? offset = null);
+        Task<ApiResponse<AddressAsset[]>> GetAddressAssets([AliasAs("_address")] string address, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
 
         [Post("/credential_txs")]
-        Task<AddressTransaction[]> GetCredentialTransactions([Body] CredentialTransactionRequest request, int? limit = null, int? offset = null);
+        Task<ApiResponse<AddressTransaction[]>> GetCredentialTransactions([Body] CredentialTransactionRequest request, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string prefer = null);
     }
 
     public class AddressTransactionRequest
