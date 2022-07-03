@@ -41,7 +41,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("creation_time")]
-        public DateTime CreationTime { get; set; }
+        public object? CreationTime { get; set; }
         
         [DataMember]
         [JsonPropertyName("mint_cnt")]
