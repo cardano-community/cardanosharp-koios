@@ -8,59 +8,59 @@ namespace CardanoSharp.Koios.Sdk.Contracts
     {
         [DataMember]
         [JsonPropertyName("epoch_no")]
-        public uint EpochNo { get; set; }
+        public uint? EpochNo { get; set; }
         
         [DataMember]
         [JsonPropertyName("min_fee_a")]
-        public uint MinFeeA { get; set; }
+        public uint? MinFeeA { get; set; }
         
         [DataMember]
         [JsonPropertyName("min_fee_b")]
-        public uint MinFeeB { get; set; }
+        public uint? MinFeeB { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_block_size")]
-        public uint MaxBlockSize { get; set; }
+        public uint? MaxBlockSize { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_tx_size")]
-        public uint MaxTxSize { get; set; }
+        public uint? MaxTxSize { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_bh_size")]
-        public uint MaxBhSize { get; set; }
+        public uint? MaxBhSize { get; set; }
         
         [DataMember]
         [JsonPropertyName("key_deposit")]
-        public ulong KeyDeposit { get; set; }
+        public ulong? KeyDeposit { get; set; }
         
         [DataMember]
         [JsonPropertyName("pool_deposit")]
-        public ulong PoolDeposit { get; set; }
+        public ulong? PoolDeposit { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_epoch")]
-        public uint MaxEpoch { get; set; }
+        public uint? MaxEpoch { get; set; }
         
         [DataMember]
         [JsonPropertyName("optimal_pool_count")]
-        public uint OptimalPoolCount { get; set; }
+        public uint? OptimalPoolCount { get; set; }
         
         [DataMember]
         [JsonPropertyName("influence")]
-        public decimal Influence { get; set; }
+        public decimal? Influence { get; set; }
         
         [DataMember]
         [JsonPropertyName("monetary_expand_rate")]
-        public decimal MonetaryExpandRate { get; set; }
+        public decimal? MonetaryExpandRate { get; set; }
         
         [DataMember]
         [JsonPropertyName("treasury_growth_rate")]
-        public decimal TreasuryGrowthRate { get; set; }
+        public decimal? TreasuryGrowthRate { get; set; }
         
         [DataMember]
         [JsonPropertyName("decentralisation")]
-        public decimal Decentralisation { get; set; }
+        public decimal? Decentralisation { get; set; }
         
         [DataMember]
         [JsonPropertyName("entropy")]
@@ -68,19 +68,19 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("protocol_major")]
-        public uint ProtocolMajor { get; set; }
+        public uint? ProtocolMajor { get; set; }
         
         [DataMember]
         [JsonPropertyName("protocol_minor")]
-        public uint ProtocolMinor { get; set; }
+        public uint? ProtocolMinor { get; set; }
         
         [DataMember]
         [JsonPropertyName("min_utxo_value")]
-        public uint MinUtxoValue { get; set; }
+        public uint? MinUtxoValue { get; set; }
         
         [DataMember]
         [JsonPropertyName("min_pool_cost")]
-        public ulong MinPoolCost { get; set; }
+        public ulong? MinPoolCost { get; set; }
         
         [DataMember]
         [JsonPropertyName("nonce")]
@@ -96,42 +96,42 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("price_mem")]
-        public decimal PriceMem { get; set; }
+        public decimal? PriceMem { get; set; }
         
         [DataMember]
         [JsonPropertyName("price_step")]
-        public decimal PriceStep { get; set; }
+        public decimal? PriceStep { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_tx_ex_mem")]
-        public uint MaxTxExMem { get; set; }
+        public uint? MaxTxExMem { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_tx_ex_steps")]
-        public ulong MaxTxExSteps { get; set; }
+        public ulong? MaxTxExSteps { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_block_ex_mem")]
-        public uint MaxBlockExMem { get; set; }
+        public uint? MaxBlockExMem { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_block_ex_steps")]
-        public ulong MaxBlockExSteps { get; set; }
+        public ulong? MaxBlockExSteps { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_val_size")]
-        public uint MaxValSize { get; set; }
+        public uint? MaxValSize { get; set; }
         
         [DataMember]
         [JsonPropertyName("collateral_percent")]
-        public uint CollateralPercent { get; set; }
+        public uint? CollateralPercent { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_collateral_inputs")]
-        public uint MaxCollateralInputs { get; set; }
+        public uint? MaxCollateralInputs { get; set; }
         
         [DataMember]
         [JsonPropertyName("coins_per_utxo_word")]
-        public uint CoinsPerUtxoWord { get; set; }
+        public uint? CoinsPerUtxoWord { get; set; }
     }
 }
