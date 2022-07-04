@@ -29,11 +29,11 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("first_block_time")]
-        public DateTime FirstBlockTime { get; set; }
+        public object FirstBlockTime { get; set; }
         
         [DataMember]
         [JsonPropertyName("last_block_time")]
-        public DateTime LastBlockTime { get; set; }
+        public object LastBlockTime { get; set; }
         
         [DataMember]
         [JsonPropertyName("active_stake")]
