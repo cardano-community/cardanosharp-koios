@@ -175,16 +175,6 @@ var addressTransactionRequest = new AddressTransactionRequest()
     AfterBlockHeight = 6238675
 };
 
-// Get Assets
-
-Console.WriteLine("Get Assets ");
-var assets = assetClient.GetAssetsList().Result;
-foreach (var ai in assets.Content)
-{
-    Console.WriteLine(JsonSerializer.Serialize(ai));
-}
-Console.WriteLine();
-
 // Get Address Transactions
 Console.WriteLine("Get Address Transactions");
 var addressTransactions = addressClient.GetAddressTransactions(addressTransactionRequest).Result;
@@ -286,6 +276,15 @@ var stakeHistory = accountClient.GetStakeHistory(stakeAddress).Result;
 foreach (var sh in stakeHistory.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(sh));
+}
+Console.WriteLine();
+
+// Get Assets
+Console.WriteLine("Get Assets ");
+var assets = assetClient.GetAssetsList().Result;
+foreach (var ai in assets.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(ai));
 }
 Console.WriteLine();
 

@@ -286,6 +286,12 @@ Get instance of the `IAssetClient`
 IAssetClient assetClient = RestService.For<IAssetClient>("https://api.koios.rest/api/v0");
 ```
 
+### Get Assets List
+
+```cs
+Asset[] assets = assetClient.GetAssetsList().Result;
+```
+
 ### Get Asset Address List
 
 ```cs
