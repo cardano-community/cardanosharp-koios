@@ -279,6 +279,15 @@ foreach (var sh in stakeHistory.Content)
 }
 Console.WriteLine();
 
+// Get Assets
+Console.WriteLine("Get Assets ");
+var assets = assetClient.GetAssetsList().Result;
+foreach (var ai in assets.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(ai));
+}
+Console.WriteLine();
+
 // Get Asset Address List
 Console.WriteLine("Get Asset Address List");
 var policyId = "d3501d9531fcc25e3ca4b6429318c2cc374dbdbcf5e99c1c1e5da1ff";
