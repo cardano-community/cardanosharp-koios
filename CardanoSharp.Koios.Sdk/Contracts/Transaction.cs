@@ -146,7 +146,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
     {
         [DataMember]
         [JsonPropertyName("stake_addr")]
-        public TransactionPaymentAddress StakeAddress { get; set; }
+        public string StakeAddress { get; set; }
         
         [DataMember]
         [JsonPropertyName("amount")]

@@ -98,8 +98,7 @@ var transactionRequest = new GetTransactionRequest
 {
     TxHashes = new List<string>()
     {
-        "f144a8264acf4bdfe2e1241170969c930d64ab6b0996a4a45237b623f1dd670e",
-        "0b8ba3bed976fa4913f19adc9f6dd9063138db5b4dd29cecde369456b5155e94"
+        "1be5e0c09cb4ff238e00717fcce4f01acc286f7b4595d44334c8b911b6ce600b"
     }
 };
 
