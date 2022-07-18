@@ -40,10 +40,6 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         public int? BlockHeight { get; set; }
         
         [DataMember]
-        [JsonPropertyName("block_time")]
-        public string? BlockTime { get; set; }
-        
-        [DataMember]
         [JsonPropertyName("asset_list")]
         public List<AddressAsset> AssetList { get; set; }
     }    
