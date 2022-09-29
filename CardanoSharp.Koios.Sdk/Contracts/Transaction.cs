@@ -34,7 +34,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("tx_timestamp")]
-        public DateTime TxTimestamp { get; set; }
+        public long? TxTimestamp { get; set; }
         
         [DataMember]
         [JsonPropertyName("tx_block_index")]

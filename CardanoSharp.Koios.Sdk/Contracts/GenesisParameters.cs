@@ -29,7 +29,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
 
         [DataMember]
         [JsonPropertyName("systemstart")]
-        public DateTime SystemStart { get; set; }
+        public long? SystemStart { get; set; }
 
         [DataMember]
         [JsonPropertyName("activeslotcoeff")]
