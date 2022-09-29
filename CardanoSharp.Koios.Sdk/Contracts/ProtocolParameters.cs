@@ -32,11 +32,11 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("key_deposit")]
-        public ulong? KeyDeposit { get; set; }
+        public string? KeyDeposit { get; set; }
         
         [DataMember]
         [JsonPropertyName("pool_deposit")]
-        public ulong? PoolDeposit { get; set; }
+        public string? PoolDeposit { get; set; }
         
         [DataMember]
         [JsonPropertyName("max_epoch")]
@@ -63,7 +63,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         public decimal? Decentralisation { get; set; }
         
         [DataMember]
-        [JsonPropertyName("entropy")]
+        [JsonPropertyName("extra_entropy")]
         public string? Entropy { get; set; }
         
         [DataMember]
@@ -76,11 +76,11 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("min_utxo_value")]
-        public uint? MinUtxoValue { get; set; }
+        public string? MinUtxoValue { get; set; }
         
         [DataMember]
         [JsonPropertyName("min_pool_cost")]
-        public ulong? MinPoolCost { get; set; }
+        public string? MinPoolCost { get; set; }
         
         [DataMember]
         [JsonPropertyName("nonce")]
@@ -132,6 +132,6 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("coins_per_utxo_word")]
-        public uint? CoinsPerUtxoWord { get; set; }
+        public string? CoinsPerUtxoWord { get; set; }
     }
 }

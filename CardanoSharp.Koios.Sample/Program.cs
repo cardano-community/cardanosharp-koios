@@ -129,15 +129,14 @@ foreach (var tm in transactionMetadata.Content)
 }
 Console.WriteLine();
 
-// Get Transaction Metadata
-// throwing 404
-// Console.WriteLine("Get Transaction Status");
-// var transactionStatus = transactionClient.GetTransactionStatus(transactionRequest).Result;
-// foreach (var ts in transactionStatus)
-// {
-//     Console.WriteLine(JsonSerializer.Serialize(ts));
-// }
-// Console.WriteLine();
+//Get Transaction Metadata
+Console.WriteLine("Get Transaction Status");
+var transactionStatus = transactionClient.GetTransactionStatus(transactionRequest).Result;
+foreach (var ts in transactionStatus.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(ts));
+}
+Console.WriteLine();
 
 //Submit Transaction Example
 //this produced this https://testnet.cardanoscan.io/transaction/3e30d5012bdea1ffa667f0dbbac647ef5b74acb0c747af89657cc9456ad39df7
