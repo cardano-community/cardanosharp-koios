@@ -24,7 +24,7 @@ jobs:
           PROJECT_FILE_PATH: CardanoSharp.Koios.Sdk/CardanoSharp.Koios.Sdk.csproj
           
           # NuGet package id, used for version detection & defaults to project name
-          PACKAGE_NAME: CardanoSharp.Koios.Sdk
+          PACKAGE_NAME: CardanoSharp.Koios.Client
           
           # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
           # VERSION_FILE_PATH: Directory.Build.props
