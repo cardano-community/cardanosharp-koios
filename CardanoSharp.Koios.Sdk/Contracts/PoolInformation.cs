@@ -66,7 +66,11 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         [DataMember]
         [JsonPropertyName("active_stake")]
         public string? ActiveStake { get; set; }
-        
+
+        [DataMember]
+        [JsonPropertyName("sigma")]
+        public decimal? Sigma { get; set; }
+
         [DataMember]
         [JsonPropertyName("block_count")]
         public uint? BlockCount { get; set; }
