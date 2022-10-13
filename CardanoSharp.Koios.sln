@@ -1,8 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardanoSharp.Koios.Sdk", "CardanoSharp.Koios.Sdk\CardanoSharp.Koios.Sdk.csproj", "{72BE7E15-2E0B-45FA-BA82-087118070771}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardanoSharp.Koios.Sdk", "CardanoSharp.Koios.Sdk\CardanoSharp.Koios.Sdk.csproj", "{72BE7E15-2E0B-45FA-BA82-087118070771}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardanoSharp.Koios.Sample", "CardanoSharp.Koios.Sample\CardanoSharp.Koios.Sample.csproj", "{76E7704D-6362-4BEF-81D0-5BDA50A70F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CardanoSharp.Koios.Sample", "CardanoSharp.Koios.Sample\CardanoSharp.Koios.Sample.csproj", "{76E7704D-6362-4BEF-81D0-5BDA50A70F55}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D1FB5A3-89F0-4743-970F-6338D1A5D12F}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\nuget.yml = .github\workflows\nuget.yml
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +27,11 @@ Global
 		{76E7704D-6362-4BEF-81D0-5BDA50A70F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76E7704D-6362-4BEF-81D0-5BDA50A70F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76E7704D-6362-4BEF-81D0-5BDA50A70F55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8FCCA8A-A200-4E4E-8BFE-EEFEF94E70EE}
 	EndGlobalSection
 EndGlobal

@@ -15,7 +15,7 @@ namespace CardanoSharp.Koios.Sdk
         public string? Amount { get; set; }
         
         [DataMember]
-        [JsonPropertyName("epoch_no")]
+        [JsonPropertyName("active_epoch_no")]
         public uint EpochNo { get; set; }
     }
 }

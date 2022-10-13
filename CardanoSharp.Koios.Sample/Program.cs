@@ -156,7 +156,7 @@ Console.WriteLine();
 // Get Address Information
 Console.WriteLine("Get Address Information");
 var address = "addr1qyp9kz50sh9c53hpmk3l4ewj9ur794t2hdqpngsjn3wkc5sztv9glpwt3frwrhdrltjaytc8ut2k4w6qrx3p98zad3fq07xe9g";
-var addressInformation = addressClient.GetAddressInformation(address).Result;
+var addressInformation = addressClient.GetAddressInformation(new BulkAddressRequest { Addresses = new List<string> { address } }).Result;
 foreach (var ai in addressInformation.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(ai));

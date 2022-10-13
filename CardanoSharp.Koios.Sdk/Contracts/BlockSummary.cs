@@ -29,6 +29,6 @@ namespace CardanoSharp.Koios.Sdk.Contracts
 
         [DataMember]
         [JsonPropertyName("block_time")]
-        public object BlockTime { get; set; }
+        public ulong? BlockTime { get; set; }
     }
 }

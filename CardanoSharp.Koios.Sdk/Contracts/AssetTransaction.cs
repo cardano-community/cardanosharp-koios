@@ -7,23 +7,19 @@ namespace CardanoSharp.Koios.Sdk.Contracts
     public class AssetTransaction
     {
         [DataMember]
-        [JsonPropertyName("policy_id")]
-        public string? PolicyId { get; set; }
-        
+        [JsonPropertyName("tx_hash")]
+        public string? TxHash { get; set; }
+
         [DataMember]
-        [JsonPropertyName("asset_name")]
-        public string? AssetName { get; set; }
-        
+        [JsonPropertyName("epoch_no")]
+        public uint EpochNo { get; set; }
+
         [DataMember]
-        [JsonPropertyName("total_transactions")]
-        public uint TotalTransactions { get; set; }
-        
+        [JsonPropertyName("block_height")]
+        public uint BlockHeight { get; set; }
+
         [DataMember]
-        [JsonPropertyName("staked_wallets")]
-        public uint StakedWallets { get; set; }
-        
-        [DataMember]
-        [JsonPropertyName("unstaked_addresses")]
-        public uint UnstakedAddresses { get; set; }
+        [JsonPropertyName("block_time")]
+        public ulong BlockTime { get; set; }
     }
 }

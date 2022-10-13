@@ -8,8 +8,8 @@ namespace CardanoSharp.Koios.Sdk
 {
     public interface IAddressClient
     {
-        [Get("/address_info")]
-        Task<ApiResponse<AddressInformation[]>> GetAddressInformation([AliasAs("_address")] string address, 
+        [Post("/address_info")]
+        Task<ApiResponse<AddressInformation[]>> GetAddressInformation([Body] BulkAddressRequest addresses, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string prefer = null);
@@ -19,6 +19,7 @@ namespace CardanoSharp.Koios.Sdk
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string prefer = null);
+
         [Get("/address_assets")]
         Task<ApiResponse<AddressAsset[]>> GetAddressAssets([AliasAs("_address")] string address, 
             [AliasAs("limit")]int? limit = null, 
@@ -32,10 +33,16 @@ namespace CardanoSharp.Koios.Sdk
             [Header("Prefer")] string prefer = null);
     }
 
+    public class BulkAddressRequest
+    {
+        [JsonPropertyName("_addresses")]
+        public List<string>? Addresses { get; set; }
+    }
+
     public class AddressTransactionRequest
     {
         [JsonPropertyName("_addresses")] 
-        public List<string> Addresses { get; set; }
+        public List<string>? Addresses { get; set; }
         
         [JsonPropertyName("_after_block_height")]
         public uint AfterBlockHeight { get; set; }
@@ -44,7 +51,7 @@ namespace CardanoSharp.Koios.Sdk
     public class CredentialTransactionRequest
     {
         [JsonPropertyName("_payment_credentials")] 
-        public List<string> PaymentCredentials { get; set; }
+        public List<string>? PaymentCredentials { get; set; }
         
         [JsonPropertyName("_after_block_height")]
         public uint AfterBlockHeight { get; set; }
