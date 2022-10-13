@@ -75,7 +75,7 @@ Console.WriteLine();
 // Get Block Information
 Console.WriteLine("Get Block Information");
 var blockHashes = new string[] {"f6192a1aaa6d3d05b4703891a6b66cd757801c61ace86cbe5ab0d66e07f601ab"};
-var getBlockInfoRequest = new GetBlockInformationRequest() {BlockHashes = blockHashes};
+var getBlockInfoRequest = new BulkBlockRequest() {BlockHashes = blockHashes};
 var blockInfo = blockClient.GetBlockInfo(getBlockInfoRequest).Result;
 foreach (var bi in blockInfo.Content)
 {
@@ -85,8 +85,7 @@ Console.WriteLine();
 
 // Get Block Transactions
 Console.WriteLine("Get Block Transactions");
-var blockHash = "f6192a1aaa6d3d05b4703891a6b66cd757801c61ace86cbe5ab0d66e07f601ab";
-var blockTransactions = blockClient.GetBlockTransactions(blockHash).Result;
+var blockTransactions = blockClient.GetBlockTransactions(new BulkBlockRequest { BlockHashes = blockHashes }).Result;
 foreach (var bt in blockTransactions.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(bt));

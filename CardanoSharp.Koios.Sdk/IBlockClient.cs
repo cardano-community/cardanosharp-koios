@@ -10,24 +10,24 @@ namespace CardanoSharp.Koios.Sdk
         [Get("/blocks")]
         Task<ApiResponse<Block[]>> GetBlockList([AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
         
         [Post("/block_info")]
-        Task<ApiResponse<Block[]>> GetBlockInfo([Body] GetBlockInformationRequest request, 
+        Task<ApiResponse<Block[]>> GetBlockInfo([Body] BulkBlockRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
         
-        [Get("/block_txs")]
-        Task<ApiResponse<BlockTransaction[]>> GetBlockTransactions([AliasAs("_block_hash")] string blockHash, 
+        [Post("/block_txs")]
+        Task<ApiResponse<BlockTransaction[]>> GetBlockTransactions([Body] BulkBlockRequest request,
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
     }   
     
-    public class GetBlockInformationRequest
+    public class BulkBlockRequest
     {
         [JsonPropertyName("_block_hashes")]
-        public string[] BlockHashes { get; set; }
+        public string[]? BlockHashes { get; set; }
     }
 }

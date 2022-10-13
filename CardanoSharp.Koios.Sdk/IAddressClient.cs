@@ -12,25 +12,25 @@ namespace CardanoSharp.Koios.Sdk
         Task<ApiResponse<AddressInformation[]>> GetAddressInformation([Body] BulkAddressRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/address_txs")]
         Task<ApiResponse<AddressTransaction[]>> GetAddressTransactions([Body] AddressTransactionRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/address_assets")]
         Task<ApiResponse<AddressAsset[]>> GetAddressAssets([Body] BulkAddressRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/credential_txs")]
         Task<ApiResponse<AddressTransaction[]>> GetCredentialTransactions([Body] CredentialTransactionRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
     }
 
     public class BulkAddressRequest
