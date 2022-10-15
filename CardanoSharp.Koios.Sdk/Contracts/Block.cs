@@ -13,7 +13,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("epoch_no")]
-        public uint Epoch { get; set; }
+        public uint EpochNo { get; set; }
         
         [DataMember]
         [JsonPropertyName("abs_slot")]
@@ -49,11 +49,11 @@ namespace CardanoSharp.Koios.Sdk.Contracts
 
         [DataMember]
         [JsonPropertyName("proto_major")]
-        public int ProtoMajor { get; set; }
+        public uint ProtoMajor { get; set; }
 
         [DataMember]
         [JsonPropertyName("proto_minor")]
-        public int ProtoMinor { get; set; }
+        public uint ProtoMinor { get; set; }
 
         [DataMember]
         [JsonPropertyName("parent_hash")]

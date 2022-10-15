@@ -9,33 +9,33 @@ namespace CardanoSharp.Koios.Sdk
     {
         [Get("/account_list")]
         Task<ApiResponse<Account[]>> GetAllAccounts([AliasAs("limit")]int? limit = null, 
-        [AliasAs("offset")]int? offset = null, 
-        [Header("Prefer")] string prefer = null);
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/account_info")]
         Task<ApiResponse<AccountInformation[]>> GetAccountInformation([Body]AccountBulkRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/account_rewards")]
         Task<ApiResponse<AccountRewardGroup[]>> GetAccountRewards([Body] AccountHistoricalBulkRequest request,
             [AliasAs("_epoch_no")]string? epochNo = null, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/account_updates")]
         Task<ApiResponse<AccountUpdateGroup[]>> GetAccountUpdates([Body] AccountBulkRequest request,
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/account_addresses")]
         Task<ApiResponse<AccountAddressGroup[]>> GetAccountAddresses([Body] AccountBulkRequest request,
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/account_assets")]
         Task<ApiResponse<AccountAssetGroup[]>> GetAccountAssets([Body] AccountBulkRequest request,
@@ -43,13 +43,13 @@ namespace CardanoSharp.Koios.Sdk
             [AliasAs("asset_policy")] string assetPolicy = null, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/account_history")]
         Task<ApiResponse<AccountHistoryGroup[]>> GetAccountHistory([Body] AccountHistoricalBulkRequest request,
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
     }
 
     public class AccountBulkRequest
@@ -64,6 +64,6 @@ namespace CardanoSharp.Koios.Sdk
         public string[]? StakeAddresses { get; set; }
 
         [JsonPropertyName("_epoch_no")]
-        public uint Epoch { get; set; }
+        public uint EpochNo { get; set; }
     }
 }

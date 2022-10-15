@@ -239,7 +239,7 @@ Console.WriteLine();
 
 // Get Stake Rewards
 Console.WriteLine("Get Stake Rewards");
-var accountHistoryRequest = new AccountHistoricalBulkRequest { StakeAddresses = stakeAddressesToRequest, Epoch = 280 };
+var accountHistoryRequest = new AccountHistoricalBulkRequest { StakeAddresses = stakeAddressesToRequest, EpochNo = 280 };
 var stakeRewards = accountClient.GetAccountRewards(accountHistoryRequest).Result;
 foreach (var sr in stakeRewards.Content)
 {
@@ -348,12 +348,30 @@ foreach (var pi in poolInformations.Content)
 }
 Console.WriteLine();
 
+// Get Pool Stake Snapshot
+Console.WriteLine("Get Pool Stake Snapshot");
+var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
+var poolSnapshot = poolClient.GetStakeSnapshot(poolBech32).Result;
+foreach (var pi in poolSnapshot.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pi));
+}
+Console.WriteLine();
+
 // Get Pool Delegators
 Console.WriteLine("Get Pool Delegators");
-var poolBech32 = "pool155efqn9xpcf73pphkk88cmlkdwx4ulkg606tne970qswczg3asc";
 var epochNo = "294"; //optional
-var poolDelegators = poolClient.GetDelegators(poolBech32, epochNo).Result;
+var poolDelegators = poolClient.GetDelegators(poolBech32).Result;
 foreach (var pd in poolDelegators.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pd));
+}
+Console.WriteLine();
+
+// Get Pool Delegators History
+Console.WriteLine("Get Pool Delegators History");
+var poolDelegatorsHistory = poolClient.GetDelegatorsHistory(poolBech32, epochNo).Result;
+foreach (var pd in poolDelegatorsHistory.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(pd));
 }
@@ -365,6 +383,15 @@ var poolBlocks = poolClient.GetBlocks(poolBech32, epochNo).Result;
 foreach (var pb in poolBlocks.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(pb));
+}
+Console.WriteLine();
+
+// Get Pool History
+Console.WriteLine("Get Pool History");
+var poolHistory = poolClient.GetHistory(poolBech32, epochNo).Result;
+foreach (var pd in poolHistory.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pd));
 }
 Console.WriteLine();
 

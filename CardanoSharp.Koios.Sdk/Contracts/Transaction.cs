@@ -22,7 +22,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("epoch_no")]
-        public uint Epoch { get; set; }
+        public uint EpochNo { get; set; }
         
         [DataMember]
         [JsonPropertyName("epoch_slot")]
