@@ -4,7 +4,19 @@ using System.Text.Json.Serialization;
 namespace CardanoSharp.Koios.Sdk.Contracts
 {
     [DataContract]
-    public class StakeReward
+    public class AccountRewardGroup
+    {
+        [DataMember]
+        [JsonPropertyName("stake_address")]
+        public string? StakeAddress { get; set; }
+
+        [DataMember]
+        [JsonPropertyName("rewards")]
+        public AccountReward[]? Rewards { get; set; }
+    }
+
+    [DataContract]
+    public class AccountReward
     {
         [DataMember]
         [JsonPropertyName("earned_epoch")]

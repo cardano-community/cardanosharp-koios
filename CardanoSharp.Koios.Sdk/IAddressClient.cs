@@ -9,7 +9,7 @@ namespace CardanoSharp.Koios.Sdk
     public interface IAddressClient
     {
         [Post("/address_info")]
-        Task<ApiResponse<AddressInformation[]>> GetAddressInformation([Body] BulkAddressRequest request, 
+        Task<ApiResponse<AddressInformation[]>> GetAddressInformation([Body] AddressBulkRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string? prefer = null);
@@ -21,7 +21,7 @@ namespace CardanoSharp.Koios.Sdk
             [Header("Prefer")] string? prefer = null);
 
         [Post("/address_assets")]
-        Task<ApiResponse<AddressAsset[]>> GetAddressAssets([Body] BulkAddressRequest request, 
+        Task<ApiResponse<AddressAssetGroup[]>> GetAddressAssets([Body] AddressBulkRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string? prefer = null);
@@ -33,7 +33,7 @@ namespace CardanoSharp.Koios.Sdk
             [Header("Prefer")] string? prefer = null);
     }
 
-    public class BulkAddressRequest
+    public class AddressBulkRequest
     {
         [JsonPropertyName("_addresses")]
         public List<string>? Addresses { get; set; }

@@ -8,16 +8,24 @@ namespace CardanoSharp.Koios.Sdk.Contracts
     public class AddressInformation
     {
         [DataMember]
+        [JsonPropertyName("address")]
+        public string? Address { get; set; }
+
+        [DataMember]
         [JsonPropertyName("balance")]
         public string? Balance { get; set; }
         
         [DataMember]
         [JsonPropertyName("stake_address")]
         public string? StakeAddress { get; set; }
-        
+
+        [DataMember]
+        [JsonPropertyName("script_address")]
+        public string? ScriptAddress { get; set; }
+
         [DataMember]
         [JsonPropertyName("utxo_set")]
-        public IEnumerable<AddressUtxoSet> UtxoSets { get; set; }
+        public AddressUtxoSet[]? UtxoSets { get; set; }
     }
 
     [DataContract]
@@ -32,12 +40,20 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         public uint TxIndex { get; set; }
         
         [DataMember]
+        [JsonPropertyName("block_height")]
+        public uint? BlockHeight { get; set; }
+
+        [DataMember]
+        [JsonPropertyName("block_time")]
+        public ulong? BlockTime { get; set; }
+
+        [DataMember]
         [JsonPropertyName("value")]
         public string? Value { get; set; }
-        
+
         [DataMember]
-        [JsonPropertyName("block_height")]
-        public int? BlockHeight { get; set; }
+        [JsonPropertyName("datum_hash")]
+        public string? DatumHash { get; set; }
 
         [DataMember]
         [JsonPropertyName("inline_datum")]
@@ -49,22 +65,26 @@ namespace CardanoSharp.Koios.Sdk.Contracts
 
         [DataMember]
         [JsonPropertyName("asset_list")]
-        public List<AddressAsset> AssetList { get; set; }
-    }    
-    
+        public AddressInformationAsset[]? AssetList { get; set; }
+    }
+
     [DataContract]
-    public class AddressAsset
+    public class AddressInformationAsset
     {
         [DataMember]
         [JsonPropertyName("policy_id")]
         public string? PolicyId { get; set; }
-        
+
         [DataMember]
         [JsonPropertyName("asset_name")]
         public string? AssetName { get; set; }
-        
+
         [DataMember]
         [JsonPropertyName("quantity")]
         public string? Quantity { get; set; }
+
+        [DataMember]
+        [JsonPropertyName("fingerprint")]
+        public string? Fingerprint { get; set; }
     }
 }

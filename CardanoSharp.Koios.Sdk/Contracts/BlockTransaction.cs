@@ -7,7 +7,11 @@ namespace CardanoSharp.Koios.Sdk.Contracts
     public class BlockTransaction
     {
         [DataMember]
-        [JsonPropertyName("tx_hash")]
-        public string? TxHash { get; set; }
+        [JsonPropertyName("block_hash")]
+        public string? BlockHash { get; set; }
+
+        [DataMember]
+        [JsonPropertyName("tx_hashes")]
+        public string[]? TxHashes { get; set; }
     }
 }
