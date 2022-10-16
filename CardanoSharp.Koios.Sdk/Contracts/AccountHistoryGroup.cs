@@ -12,7 +12,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("history")]
-        public AccountStakeHistory? History { get; set; }
+        public AccountStakeHistory[]? History { get; set; }
     }
     
     [DataContract]

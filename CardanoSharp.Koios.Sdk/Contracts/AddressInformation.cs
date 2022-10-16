@@ -20,7 +20,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
 
         [DataMember]
         [JsonPropertyName("script_address")]
-        public string? ScriptAddress { get; set; }
+        public bool ScriptAddress { get; set; }
 
         [DataMember]
         [JsonPropertyName("utxo_set")]
