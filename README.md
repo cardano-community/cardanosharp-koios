@@ -1,5 +1,5 @@
 # CardanoSharp Koios SDK 
- [![NuGet Version](https://img.shields.io/nuget/v/CardanoSharp.Koios.Sdk.svg?style=flat)](https://www.nuget.org/packages/CardanoSharp.Koios.Sdk/) ![NuGet Downloads](https://img.shields.io/nuget/dt/CardanoSharp.Koios.Sdk.svg)
+ [![NuGet Version](https://img.shields.io/nuget/v/CardanoSharp.Koios.Client.svg?style=flat)](https://www.nuget.org/packages/CardanoSharp.Koios.Client/) ![NuGet Downloads](https://img.shields.io/nuget/dt/CardanoSharp.Koios.Client.svg)
 
 This library helps .NET developers integrate with Cardano using the Koios API - specifically [v1.0.8](https://cardano-community.github.io/guild-operators/Build/grest-changelog/#108-for-all-networks)
 
@@ -12,7 +12,7 @@ Learn more here: [https://api.koios.rest/](https://api.koios.rest/)
 
 Add Nuget
 ```bash
-dotnet add package CardanoSharp.Koios.Sdk
+dotnet add package CardanoSharp.Koios.Client
 ```
 
 ## Network
