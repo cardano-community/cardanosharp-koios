@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CardanoSharp.Koios.Sdk\CardanoSharp.Koios.Sdk.csproj" />
+      <ProjectReference Include="..\CardanoSharp.Koios.Client\CardanoSharp.Koios.Client.csproj" />
     </ItemGroup>
 
     <ItemGroup>

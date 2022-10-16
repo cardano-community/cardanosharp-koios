@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Text.Json;
-using CardanoSharp.Koios.Sdk;
+using CardanoSharp.Koios.Client;
 using Refit;
 
 var networkClient = RestService.For<INetworkClient>("https://api.koios.rest/api/v0");
