@@ -1,5 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace CardanoSharp.Koios.Sdk.Contracts
@@ -29,6 +28,6 @@ namespace CardanoSharp.Koios.Sdk.Contracts
 
         [DataMember]
         [JsonPropertyName("block_time")]
-        public object BlockTime { get; set; }
+        public ulong? BlockTime { get; set; }
     }
 }

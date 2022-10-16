@@ -1,24 +1,27 @@
 ﻿using System.Runtime.Serialization;
-using System.Security.Principal;
 using System.Text.Json.Serialization;
 
 namespace CardanoSharp.Koios.Sdk.Contracts
 {
     [DataContract]
-    public class StakeHistory
+    public class PoolStakeSnapshot
     {
         [DataMember]
-        [JsonPropertyName("stake_address")]
-        public string? StakeAddress { get; set; }
-        
-        [DataMember]
-        [JsonPropertyName("pool_id")]
-        public string? Type { get; set; }
-        
+        [JsonPropertyName("snapshot")]
+        public string? Snapshot { get; set; }
+
         [DataMember]
         [JsonPropertyName("epoch_no")]
         public uint EpochNo { get; set; }
-        
+
+        [DataMember]
+        [JsonPropertyName("nonce")]
+        public string? Nonce { get; set; }
+
+        [DataMember]
+        [JsonPropertyName("pool_stake")]
+        public string? PoolStake { get; set; }
+
         [DataMember]
         [JsonPropertyName("active_stake")]
         public string? ActiveStake { get; set; }

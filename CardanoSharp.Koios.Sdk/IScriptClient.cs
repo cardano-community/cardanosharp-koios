@@ -9,17 +9,17 @@ namespace CardanoSharp.Koios.Sdk
         [Get("/native_script_list")]
         Task<ApiResponse<ScriptItem[]>> GetNativeList([AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
         
         [Get("/plutus_script_list")]
         Task<ApiResponse<ScriptItem[]>> GetPlutusList([AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Get("/script_redeemers")]
         Task<ApiResponse<ScriptRedeemer[]>> GetRedeemers([AliasAs("_script_hash")] string scriptHash, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
     }
 }

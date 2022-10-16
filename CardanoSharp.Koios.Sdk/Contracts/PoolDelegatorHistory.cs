@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace CardanoSharp.Koios.Sdk
 {
     [DataContract]
-    public class PoolDelegator
+    public class PoolDelegatorHistory
     {
         [DataMember]
         [JsonPropertyName("stake_address")]
@@ -15,11 +15,7 @@ namespace CardanoSharp.Koios.Sdk
         public string? Amount { get; set; }
         
         [DataMember]
-        [JsonPropertyName("active_epoch_no")]
-        public uint ActiveEpochNo { get; set; }
-
-        [DataMember]
-        [JsonPropertyName("latest_delegation_hash")]
-        public string? LatestDelegationHash { get; set; }
+        [JsonPropertyName("epoch_no")]
+        public uint EpochNo { get; set; }
     }
 }

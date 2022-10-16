@@ -4,8 +4,12 @@ using System.Text.Json.Serialization;
 namespace CardanoSharp.Koios.Sdk.Contracts
 {
     [DataContract]
-    public class StakeInformation
+    public class AccountInformation
     {
+        [DataMember]
+        [JsonPropertyName("stake_address")]
+        public string? StakeAddress { get; set; }
+
         [DataMember]
         [JsonPropertyName("status")]
         public string? Status { get; set; }

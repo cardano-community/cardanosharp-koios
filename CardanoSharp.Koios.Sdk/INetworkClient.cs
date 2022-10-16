@@ -16,6 +16,6 @@ namespace CardanoSharp.Koios.Sdk
         Task<ApiResponse<TokenomicStats[]>> GetHistoricalTokenomicStats([AliasAs("_epoch_no")] string epoch, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
     }
 }

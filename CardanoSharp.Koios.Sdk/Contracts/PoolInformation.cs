@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace CardanoSharp.Koios.Sdk.Contracts
 {
-      [DataContract]
+    [DataContract]
     public class PoolInformation
     {
         [DataMember]
@@ -52,7 +52,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         public string? PoolStatus { get; set; }
         
         [DataMember]
-        [JsonPropertyName("RetiringEpoch")]
+        [JsonPropertyName("retiring_epoch")]
         public uint? RetiringEpoch { get; set; }
         
         [DataMember]
@@ -66,11 +66,19 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         [DataMember]
         [JsonPropertyName("active_stake")]
         public string? ActiveStake { get; set; }
-        
+
+        [DataMember]
+        [JsonPropertyName("sigma")]
+        public decimal? Sigma { get; set; }
+
         [DataMember]
         [JsonPropertyName("block_count")]
         public uint? BlockCount { get; set; }
-        
+
+        [DataMember]
+        [JsonPropertyName("live_pledge")]
+        public string? LivePledge { get; set; }
+
         [DataMember]
         [JsonPropertyName("live_stake")]
         public string? LiveStake { get; set; }
@@ -85,14 +93,14 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("owners")]
-        public List<string> Owners { get; set; }
+        public List<string>? Owners { get; set; }
         
         [DataMember]
         [JsonPropertyName("meta_json")]
-        public Dictionary<string, string> MetaJson { get; set; }
+        public Dictionary<string, string>? MetaJson { get; set; }
         
         [DataMember]
         [JsonPropertyName("relays")]
-        public Relay[] Relays { get; set; }
+        public Relay[]? Relays { get; set; }
     }
 }

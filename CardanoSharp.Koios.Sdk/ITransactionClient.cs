@@ -13,25 +13,25 @@ namespace CardanoSharp.Koios.Sdk
         Task<ApiResponse<Transaction[]>> GetTransactionInformation([Body] GetTransactionRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
         
         [Post("/tx_utxos")]
         Task<ApiResponse<Transaction[]>> GetTransactionUtxos([Body] GetTransactionRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
         
         [Post("/tx_metadata")]
         Task<ApiResponse<TransactionMetadata[]>> GetTransactionMetadata([Body] GetTransactionRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
         
         [Post("/tx_status")]
         Task<ApiResponse<TransactionStatus[]>> GetTransactionStatus([Body] GetTransactionRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
         
         [Headers("Content-Type: application/cbor")]
         [Post("/submittx")]
@@ -40,6 +40,6 @@ namespace CardanoSharp.Koios.Sdk
 
     public class GetTransactionRequest
     {
-        [JsonPropertyName("_tx_hashes")] public List<string> TxHashes { get; set; }
+        [JsonPropertyName("_tx_hashes")] public List<string>? TxHashes { get; set; }
     }
 }

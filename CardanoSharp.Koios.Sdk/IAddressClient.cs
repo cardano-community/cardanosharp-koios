@@ -8,34 +8,41 @@ namespace CardanoSharp.Koios.Sdk
 {
     public interface IAddressClient
     {
-        [Get("/address_info")]
-        Task<ApiResponse<AddressInformation[]>> GetAddressInformation([AliasAs("_address")] string address, 
+        [Post("/address_info")]
+        Task<ApiResponse<AddressInformation[]>> GetAddressInformation([Body] AddressBulkRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/address_txs")]
         Task<ApiResponse<AddressTransaction[]>> GetAddressTransactions([Body] AddressTransactionRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
-        [Get("/address_assets")]
-        Task<ApiResponse<AddressAsset[]>> GetAddressAssets([AliasAs("_address")] string address, 
+            [Header("Prefer")] string? prefer = null);
+
+        [Post("/address_assets")]
+        Task<ApiResponse<AddressAssetGroup[]>> GetAddressAssets([Body] AddressBulkRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/credential_txs")]
         Task<ApiResponse<AddressTransaction[]>> GetCredentialTransactions([Body] CredentialTransactionRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
-            [Header("Prefer")] string prefer = null);
+            [Header("Prefer")] string? prefer = null);
+    }
+
+    public class AddressBulkRequest
+    {
+        [JsonPropertyName("_addresses")]
+        public List<string>? Addresses { get; set; }
     }
 
     public class AddressTransactionRequest
     {
         [JsonPropertyName("_addresses")] 
-        public List<string> Addresses { get; set; }
+        public List<string>? Addresses { get; set; }
         
         [JsonPropertyName("_after_block_height")]
         public uint AfterBlockHeight { get; set; }
@@ -44,7 +51,7 @@ namespace CardanoSharp.Koios.Sdk
     public class CredentialTransactionRequest
     {
         [JsonPropertyName("_payment_credentials")] 
-        public List<string> PaymentCredentials { get; set; }
+        public List<string>? PaymentCredentials { get; set; }
         
         [JsonPropertyName("_after_block_height")]
         public uint AfterBlockHeight { get; set; }

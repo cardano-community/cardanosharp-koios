@@ -131,7 +131,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         public uint? MaxCollateralInputs { get; set; }
         
         [DataMember]
-        [JsonPropertyName("coins_per_utxo_word")]
-        public string? CoinsPerUtxoWord { get; set; }
+        [JsonPropertyName("coins_per_utxo_size")]
+        public string? CoinsPerUtxoSize { get; set; }
     }
 }

@@ -1,9 +1,7 @@
 # CardanoSharp Koios SDK 
  [![NuGet Version](https://img.shields.io/nuget/v/CardanoSharp.Koios.Sdk.svg?style=flat)](https://www.nuget.org/packages/CardanoSharp.Koios.Sdk/) ![NuGet Downloads](https://img.shields.io/nuget/dt/CardanoSharp.Koios.Sdk.svg)
 
-This library helps .NET developers leverage the Koios Api
-
-This library is still a work in progress...
+This library helps .NET developers integrate with Cardano using the Koios API - specifically [v1.0.8](https://cardano-community.github.io/guild-operators/Build/grest-changelog/#108-for-all-networks)
 
 ## Koios
 Koios is best described as a Decentralized and Elastic RESTful query layer for exploring data on Cardano blockchain to consume within applications/wallets/explorers/etc.

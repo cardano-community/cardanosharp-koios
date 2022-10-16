@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace CardanoSharp.Koios.Sdk.Contracts
 {
     [DataContract]
-    public class StakeAccount
+    public class Account
     {
         [DataMember]
         [JsonPropertyName("id")]

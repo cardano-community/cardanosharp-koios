@@ -1,5 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace CardanoSharp.Koios.Sdk.Contracts
@@ -12,8 +11,8 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         public string? Hash { get; set; }
         
         [DataMember]
-        [JsonPropertyName("epoch")]
-        public uint Epoch { get; set; }
+        [JsonPropertyName("epoch_no")]
+        public uint EpochNo { get; set; }
         
         [DataMember]
         [JsonPropertyName("abs_slot")]
@@ -29,7 +28,7 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         
         [DataMember]
         [JsonPropertyName("block_time")]
-        public long? BlockTime { get; set; }
+        public ulong? BlockTime { get; set; }
         
         [DataMember]
         [JsonPropertyName("tx_count")]
@@ -46,7 +45,15 @@ namespace CardanoSharp.Koios.Sdk.Contracts
         [DataMember]
         [JsonPropertyName("pool")]
         public string? Pool { get; set; }
-        
+
+        [DataMember]
+        [JsonPropertyName("proto_major")]
+        public uint ProtoMajor { get; set; }
+
+        [DataMember]
+        [JsonPropertyName("proto_minor")]
+        public uint ProtoMinor { get; set; }
+
         [DataMember]
         [JsonPropertyName("parent_hash")]
         public string? ParentHash { get; set; }
