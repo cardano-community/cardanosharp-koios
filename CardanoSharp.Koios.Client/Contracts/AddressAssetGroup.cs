@@ -31,19 +31,15 @@ namespace CardanoSharp.Koios.Client.Contracts
     public class AddressAsset
     {
         [DataMember]
-        [JsonPropertyName("asset_policy")]
-        public string? PolicyId { get; set; }
-
-        [DataMember]
         [JsonPropertyName("asset_name")]
         public string? AssetName { get; set; }
 
         [DataMember]
-        [JsonPropertyName("balance")]
-        public ulong? Balance { get; set; }
+        [JsonPropertyName("asset_name_ascii")]
+        public string? AssetNameAscii { get; set; }
 
         [DataMember]
-        [JsonPropertyName("fingerprint")]
-        public string? Fingerprint { get; set; }
+        [JsonPropertyName("balance")]
+        public string? Balance { get; set; }
     }
 }
