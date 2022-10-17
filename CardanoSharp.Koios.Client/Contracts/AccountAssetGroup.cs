@@ -11,7 +11,7 @@ namespace CardanoSharp.Koios.Client.Contracts
         public string? StakeAddress { get; set; }
         
         [DataMember]
-        [JsonPropertyName("asset_name")]
+        [JsonPropertyName("assets")]
         public AccountPolicyAssets[]? Assets { get; set; }
     }
 
@@ -31,15 +31,15 @@ namespace CardanoSharp.Koios.Client.Contracts
     public class AccountAsset
     {
         [DataMember]
-        [JsonPropertyName("asset_policy")]
-        public string? PolicyId { get; set; }
-
-        [DataMember]
         [JsonPropertyName("asset_name")]
         public string? AssetName { get; set; }
 
         [DataMember]
+        [JsonPropertyName("asset_name_ascii")]
+        public string? AssetNameAscii { get; set; }
+
+        [DataMember]
         [JsonPropertyName("balance")]
-        public ulong? Balance { get; set; }
+        public string? Balance { get; set; }
     }
 }
