@@ -37,6 +37,6 @@ namespace CardanoSharp.Koios.Client.Contracts
         
         [DataMember]
         [JsonPropertyName("datum_value")]
-        public Dictionary<string, object> DatumValues { get; set; }
+        public Dictionary<string, object>? DatumValues { get; set; }
     }
 }

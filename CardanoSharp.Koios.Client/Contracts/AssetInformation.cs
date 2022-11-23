@@ -28,11 +28,11 @@ namespace CardanoSharp.Koios.Client.Contracts
         
         [DataMember]
         [JsonPropertyName("minting_tx_metadata")]
-        public object MintingTxMetadata { get; set; }
+        public object? MintingTxMetadata { get; set; }
         
         [DataMember]
         [JsonPropertyName("token_registry_metadata")]
-        public object TokenRegistryMetadata { get; set; }
+        public object? TokenRegistryMetadata { get; set; }
         
         [DataMember]
         [JsonPropertyName("total_supply")]
