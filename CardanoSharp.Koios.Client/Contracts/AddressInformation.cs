@@ -64,26 +64,6 @@ namespace CardanoSharp.Koios.Client.Contracts
 
         [DataMember]
         [JsonPropertyName("asset_list")]
-        public AddressInformationAsset[]? AssetList { get; set; }
-    }
-
-    [DataContract]
-    public class AddressInformationAsset
-    {
-        [DataMember]
-        [JsonPropertyName("policy_id")]
-        public string? PolicyId { get; set; }
-
-        [DataMember]
-        [JsonPropertyName("asset_name")]
-        public string? AssetName { get; set; }
-
-        [DataMember]
-        [JsonPropertyName("quantity")]
-        public string? Quantity { get; set; }
-
-        [DataMember]
-        [JsonPropertyName("fingerprint")]
-        public string? Fingerprint { get; set; }
+        public AssetListInformation[]? AssetList { get; set; }
     }
 }

@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace CardanoSharp.Koios.Client.Contracts
 {
     [DataContract]
-    public class Asset
+    public class AssetListInformation
     {
         [DataMember]
         [JsonPropertyName("policy_id")]
@@ -14,6 +13,10 @@ namespace CardanoSharp.Koios.Client.Contracts
         [DataMember]
         [JsonPropertyName("asset_name")]
         public string? AssetName { get; set; }
+
+        [DataMember]
+        [JsonPropertyName("quantity")]
+        public string? Quantity { get; set; }
 
         [DataMember]
         [JsonPropertyName("fingerprint")]

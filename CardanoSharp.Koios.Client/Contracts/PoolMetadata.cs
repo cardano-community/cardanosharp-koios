@@ -21,6 +21,6 @@ namespace CardanoSharp.Koios.Client.Contracts
         
         [DataMember]
         [JsonPropertyName("meta_json")]
-        public Dictionary<string, string> MetaJson { get; set; }
+        public Dictionary<string, string>? MetaJson { get; set; }
     }
 }

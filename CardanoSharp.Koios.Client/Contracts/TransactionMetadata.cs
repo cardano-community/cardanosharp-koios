@@ -13,6 +13,6 @@ namespace CardanoSharp.Koios.Client.Contracts
         
         [DataMember]
         [JsonPropertyName("metadata")]
-        public Dictionary<uint, object> Metadata { get; set; }
+        public Dictionary<uint, object>? Metadata { get; set; }
     }
 }

@@ -72,8 +72,8 @@ Console.WriteLine();
 
 // Get Block Information
 Console.WriteLine("Get Block Information");
-var blockHashes = new string[] {"f6192a1aaa6d3d05b4703891a6b66cd757801c61ace86cbe5ab0d66e07f601ab"};
-var getBlockInfoRequest = new BlockBulkRequest() {BlockHashes = blockHashes};
+var blockHashes = new string[] { "f6192a1aaa6d3d05b4703891a6b66cd757801c61ace86cbe5ab0d66e07f601ab" };
+var getBlockInfoRequest = new BlockBulkRequest() { BlockHashes = blockHashes };
 var blockInfo = blockClient.GetBlockInfo(getBlockInfoRequest).Result;
 foreach (var bi in blockInfo.Content)
 {
@@ -216,7 +216,7 @@ Console.WriteLine();
 
 // Get Stake Information
 Console.WriteLine("Get Account Information");
-var stakeAddressesToRequest = new [] { "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz" };
+var stakeAddressesToRequest = new[] { "stake1u8yxtugdv63wxafy9d00nuz6hjyyp4qnggvc9a3vxh8yl0ckml2uz" };
 var accountBulkRequest = new AccountBulkRequest { StakeAddresses = stakeAddressesToRequest };
 var stakeInformation = accountClient.GetAccountInformation(accountBulkRequest).Result;
 foreach (var si in stakeInformation.Content)
@@ -462,5 +462,15 @@ var scriptRedeemers = scriptClient.GetRedeemers(scriptHash).Result;
 foreach (var sr in scriptRedeemers.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(sr));
+}
+Console.WriteLine();
+
+// Get Datum Information
+Console.WriteLine("Get Datum Information");
+var datumHashes = new[]{"818ee3db3bbbd04f9f2ce21778cac3ac605802a4fcb00c8b3a58ee2dafc17d46", "45b0cfc220ceec5b7c1c62c4d4193d38e4eba48e8815729ce75f9c0ab0e4c1c0"};
+var datumInfo = scriptClient.GetDatumInformation(new GetDatumInformationRequest { DatumHashes = datumHashes}).Result;
+foreach (var di in datumInfo.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(di));
 }
 Console.WriteLine();

@@ -11,35 +11,7 @@ namespace CardanoSharp.Koios.Client.Contracts
         public string? StakeAddress { get; set; }
         
         [DataMember]
-        [JsonPropertyName("assets")]
-        public AccountPolicyAssets[]? Assets { get; set; }
-    }
-
-    [DataContract]
-    public class AccountPolicyAssets
-    {
-        [DataMember]
-        [JsonPropertyName("policy_id")]
-        public string? PolicyId { get; set; }
-
-        [DataMember]
-        [JsonPropertyName("assets")]
-        public AccountAsset[]? Assets { get; set; }
-    }
-
-    [DataContract]
-    public class AccountAsset
-    {
-        [DataMember]
-        [JsonPropertyName("asset_name")]
-        public string? AssetName { get; set; }
-
-        [DataMember]
-        [JsonPropertyName("asset_name_ascii")]
-        public string? AssetNameAscii { get; set; }
-
-        [DataMember]
-        [JsonPropertyName("balance")]
-        public string? Balance { get; set; }
+        [JsonPropertyName("asset_list")]
+        public AssetListInformation[]? Assets { get; set; }
     }
 }

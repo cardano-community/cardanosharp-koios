@@ -13,6 +13,6 @@ namespace CardanoSharp.Koios.Client.Contracts
         
         [DataMember]
         [JsonPropertyName("relays")]
-        public List<Relay> Relays { get; set; }
+        public List<Relay>? Relays { get; set; }
     }
 }
