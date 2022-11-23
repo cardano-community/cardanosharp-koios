@@ -89,7 +89,7 @@ namespace CardanoSharp.Koios.Client.Contracts
         
         [DataMember]
         [JsonPropertyName("assets_minted")]
-        public IEnumerable<TransactionAsset>? AssetsMinted { get; set; }
+        public IEnumerable<AssetListInformation>? AssetsMinted { get; set; }
         
         [DataMember]
         [JsonPropertyName("metadata")]
@@ -144,7 +144,7 @@ namespace CardanoSharp.Koios.Client.Contracts
 
         [DataMember]
         [JsonPropertyName("asset_list")]
-        public IEnumerable<TransactionAsset>? AssetList { get; set; }
+        public IEnumerable<AssetListInformation>? AssetList { get; set; }
     }
 
     public class TransactionPaymentAddress
@@ -156,21 +156,6 @@ namespace CardanoSharp.Koios.Client.Contracts
         [DataMember]
         [JsonPropertyName("cred")]
         public string? Cred { get; set; }
-    }
-
-    public class TransactionAsset
-    {
-        [DataMember]
-        [JsonPropertyName("policy_id")]
-        public string? PolicyId { get; set; }
-        
-        [DataMember]
-        [JsonPropertyName("asset_name")]
-        public string? AssetName { get; set; }
-        
-        [DataMember]
-        [JsonPropertyName("quantity")]
-        public string? Quantity { get; set; }
     }
 
     public class TransactionWithdrawal

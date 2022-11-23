@@ -13,7 +13,11 @@ namespace CardanoSharp.Koios.Client.Contracts
         [DataMember]
         [JsonPropertyName("asset_name")]
         public string? AssetName { get; set; }
-        
+
+        [DataMember]
+        [JsonPropertyName("fingerprint")]
+        public string? Fingerprint { get; set; }
+
         [DataMember]
         [JsonPropertyName("total_transactions")]
         public ulong TotalTransactions { get; set; }

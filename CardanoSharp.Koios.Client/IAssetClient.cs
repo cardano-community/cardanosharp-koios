@@ -48,7 +48,9 @@ namespace CardanoSharp.Koios.Client
 
         [Get("/asset_txs")]
         Task<ApiResponse<AssetTransaction[]>> GetTransactions([AliasAs("_asset_policy")] string policyId,
-            [AliasAs("_asset_name")] string assetName,
+            [AliasAs("_asset_name")] string assetName = null,
+            [AliasAs("_after_block_height")] uint? afterBlockHeight = null,
+            [AliasAs("_history")] bool? history = false,
             [AliasAs("limit")] int? limit = null,
             [AliasAs("offset")] int? offset = null,
             [Header("Prefer")] string? prefer = null);
