@@ -8,7 +8,7 @@ namespace CardanoSharp.Koios.Client.Contracts
     {
         [DataMember]
         [JsonPropertyName("epoch_no")]
-        public uint EpochNo { get; set; }
+        public uint? EpochNo { get; set; }
         
         [DataMember]
         [JsonPropertyName("out_sum")]
@@ -20,27 +20,27 @@ namespace CardanoSharp.Koios.Client.Contracts
         
         [DataMember]
         [JsonPropertyName("tx_count")]
-        public uint TxCount { get; set; }
+        public uint? TxCount { get; set; }
         
         [DataMember]
         [JsonPropertyName("blk_count")]
-        public uint BlkCount { get; set; }
+        public uint? BlkCount { get; set; }
 
         [DataMember]
         [JsonPropertyName("start_time")]
-        public ulong StartTime { get; set; }
+        public ulong? StartTime { get; set; }
 
         [DataMember]
         [JsonPropertyName("end_time")]
-        public ulong EndTime { get; set; }
+        public ulong? EndTime { get; set; }
 
         [DataMember]
         [JsonPropertyName("first_block_time")]
-        public ulong FirstBlockTime { get; set; }
+        public ulong? FirstBlockTime { get; set; }
         
         [DataMember]
         [JsonPropertyName("last_block_time")]
-        public ulong LastBlockTime { get; set; }
+        public ulong? LastBlockTime { get; set; }
 
         [DataMember]
         [JsonPropertyName("active_stake")]
