@@ -61,6 +61,15 @@ foreach (var pp in protocolParameters.Content)
 }
 Console.WriteLine();
 
+// Get Epoch Information
+Console.WriteLine("Get Block Protocol");
+var blockProtocol = epochClient.GetEpochsBlockProtocols(latestEpoch).Result;
+foreach (var eb in blockProtocol.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(eb));
+}
+Console.WriteLine();
+
 // Get Block List
 Console.WriteLine("Get Block List");
 var blockList = blockClient.GetBlockList().Result;
