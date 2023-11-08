@@ -105,7 +105,7 @@ var transactionRequest = new GetTransactionRequest
 {
     TxHashes = new List<string>()
     {
-        "1be5e0c09cb4ff238e00717fcce4f01acc286f7b4595d44334c8b911b6ce600b"
+        "f144a8264acf4bdfe2e1241170969c930d64ab6b0996a4a45237b623f1dd670e"
     }
 };
 var transactionInformation = transactionClient.GetTransactionInformation(transactionRequest).Result;

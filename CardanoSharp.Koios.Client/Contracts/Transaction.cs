@@ -57,11 +57,11 @@ namespace CardanoSharp.Koios.Client.Contracts
         
         [DataMember]
         [JsonPropertyName("invalid_before")]
-        public uint? InvalidBefore { get; set; }
+        public string? InvalidBefore { get; set; }
         
         [DataMember]
         [JsonPropertyName("invalid_after")]
-        public uint? InvalidAfter { get; set; }
+        public string? InvalidAfter { get; set; }
 
         [DataMember]
         [JsonPropertyName("collateral_inputs")]
