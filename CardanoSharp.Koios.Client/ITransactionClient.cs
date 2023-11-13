@@ -15,8 +15,8 @@ namespace CardanoSharp.Koios.Client
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string? prefer = null);
         
-        [Post("/tx_utxos")]
-        Task<ApiResponse<Transaction[]>> GetTransactionUtxos([Body] GetTransactionRequest request, 
+        [Post("/utxo_info")]
+        Task<ApiResponse<Utxo[]>> GetTransactionUtxos([Body] GetTransactionUtxoRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string? prefer = null);
@@ -26,6 +26,9 @@ namespace CardanoSharp.Koios.Client
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string? prefer = null);
+        
+        [Get("/tx_metalabels")]
+        Task<ApiResponse<Metalabel[]>> GetTransactionMetadataLabels(); 
         
         [Post("/tx_status")]
         Task<ApiResponse<TransactionStatus[]>> GetTransactionStatus([Body] GetTransactionRequest request, 
@@ -41,5 +44,11 @@ namespace CardanoSharp.Koios.Client
     public class GetTransactionRequest
     {
         [JsonPropertyName("_tx_hashes")] public List<string>? TxHashes { get; set; }
+    }
+
+    public class GetTransactionUtxoRequest
+    {
+        [JsonPropertyName("_utxo_refs")] public List<string>? TxHashes { get; set; }
+        [JsonPropertyName("_extended")] public bool? Extended { get; set; }
     }
 }

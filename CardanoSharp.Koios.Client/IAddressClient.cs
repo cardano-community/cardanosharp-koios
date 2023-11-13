@@ -13,6 +13,18 @@ namespace CardanoSharp.Koios.Client
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string? prefer = null);
+        
+        [Post("/address_utxos")]
+        Task<ApiResponse<AddressUtxo[]>> GetAddressUtxos([Body] AddressBulkRequest request, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null,
+            [Header("Prefer")] string? prefer = null);
+        
+        [Post("/credential_utxos")]
+        Task<ApiResponse<AddressUtxo[]>> GetCredentialUtxos([Body] GetCredentialUtxosRequest request, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null,
+            [Header("Prefer")] string? prefer = null);
 
         [Post("/address_txs")]
         Task<ApiResponse<AddressTransaction[]>> GetAddressTransactions([Body] AddressTransactionRequest request, 
@@ -46,6 +58,15 @@ namespace CardanoSharp.Koios.Client
         
         [JsonPropertyName("_after_block_height")]
         public uint AfterBlockHeight { get; set; }
+    }
+    
+    public class GetCredentialUtxosRequest
+    {
+        [JsonPropertyName("_payment_credentials")] 
+        public List<string>? PaymentCredentials { get; set; }
+        
+        [JsonPropertyName("_extended")]
+        public bool Extended { get; set; }
     }
 
     public class CredentialTransactionRequest

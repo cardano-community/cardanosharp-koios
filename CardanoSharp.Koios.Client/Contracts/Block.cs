@@ -23,8 +23,12 @@ namespace CardanoSharp.Koios.Client.Contracts
         public uint EpochSlot { get; set; }
         
         [DataMember]
-        [JsonPropertyName("height")]
+        [JsonPropertyName("block_height")]
         public uint Height { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("block_size")]
+        public uint? BlockSize { get; set; }
         
         [DataMember]
         [JsonPropertyName("block_time")]
@@ -53,13 +57,5 @@ namespace CardanoSharp.Koios.Client.Contracts
         [DataMember]
         [JsonPropertyName("proto_minor")]
         public uint ProtoMinor { get; set; }
-
-        [DataMember]
-        [JsonPropertyName("parent_hash")]
-        public string? ParentHash { get; set; }
-        
-        [DataMember]
-        [JsonPropertyName("child_hash")]
-        public string? ChildHash { get; set; }
     }
 }

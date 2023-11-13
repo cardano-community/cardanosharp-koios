@@ -92,7 +92,7 @@ namespace CardanoSharp.Koios.Client.Contracts
         
         [DataMember]
         [JsonPropertyName("cost_models")]
-        public string? CostModels { get; set; }
+        public CostModel CostModels { get; set; }
         
         [DataMember]
         [JsonPropertyName("price_mem")]
@@ -133,5 +133,13 @@ namespace CardanoSharp.Koios.Client.Contracts
         [DataMember]
         [JsonPropertyName("coins_per_utxo_size")]
         public string? CoinsPerUtxoSize { get; set; }
+    }
+
+    [DataContract]
+    public class CostModel
+    {
+        [DataMember]
+        [JsonPropertyName("PlutusV1")]
+        public object PlutusV1 { get; set; }
     }
 }

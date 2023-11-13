@@ -13,7 +13,7 @@ namespace CardanoSharp.Koios.Client
             [Header("Prefer")] string? prefer = null);
         
         [Post("/block_info")]
-        Task<ApiResponse<Block[]>> GetBlockInfo([Body] BlockBulkRequest request, 
+        Task<ApiResponse<BlockInformation[]>> GetBlockInfo([Body] BlockBulkRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string? prefer = null);

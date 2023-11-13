@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 using CardanoSharp.Koios.Client.Contracts;
 using Refit;
 
@@ -11,10 +13,28 @@ namespace CardanoSharp.Koios.Client
             [AliasAs("limit")] int? limit = null,
             [AliasAs("offset")] int? offset = null,
             [Header("Prefer")] string? prefer = null);
+        
+        [Get("/policy_asset_list")]
+        Task<ApiResponse<PolicyAsset[]>> GetPolicyAssetsList([AliasAs("_asset_policy")] string policyId,
+            [AliasAs("limit")] int? limit = null,
+            [AliasAs("offset")] int? offset = null,
+            [Header("Prefer")] string? prefer = null);
+        
+        [Get("/asset_token_registry")]
+        Task<ApiResponse<AssetTokenRegistry[]>> GetTokenRegistry(
+            [AliasAs("limit")] int? limit = null,
+            [AliasAs("offset")] int? offset = null,
+            [Header("Prefer")] string? prefer = null);
 
-        [Get("/asset_address_list")]
+        [Get("/asset_addresses")]
         Task<ApiResponse<AssetAddress[]>> GetAddresses([AliasAs("_asset_policy")] string policyId,
             [AliasAs("_asset_name")] string assetName,
+            [AliasAs("limit")] int? limit = null,
+            [AliasAs("offset")] int? offset = null,
+            [Header("Prefer")] string? prefer = null);
+        
+        [Post("/asset_utxos")]
+        Task<ApiResponse<AddressUtxo[]>> GetUtxos([Body] AssetUtxoRequest request,
             [AliasAs("limit")] int? limit = null,
             [AliasAs("offset")] int? offset = null,
             [Header("Prefer")] string? prefer = null);
@@ -32,8 +52,21 @@ namespace CardanoSharp.Koios.Client
             [AliasAs("limit")] int? limit = null,
             [AliasAs("offset")] int? offset = null,
             [Header("Prefer")] string? prefer = null);
+        
+        [Get("/asset_nft_address")]
+        Task<ApiResponse<AssetAddress[]>> GetNftAddresses([AliasAs("_asset_policy")] string policyId,
+            [AliasAs("_asset_name")] string assetName,
+            [AliasAs("limit")] int? limit = null,
+            [AliasAs("offset")] int? offset = null,
+            [Header("Prefer")] string? prefer = null);
+        
+        [Get("/policy_asset_addresses")]
+        Task<ApiResponse<AssetAddress[]>> GetPolicyAssetAddresses([AliasAs("_asset_policy")] string policyId,
+            [AliasAs("limit")] int? limit = null,
+            [AliasAs("offset")] int? offset = null,
+            [Header("Prefer")] string? prefer = null);
 
-        [Get("/asset_policy_info")]
+        [Get("/policy_asset_info")]
         Task<ApiResponse<AssetPolicyInfo[]>> GetPolicyInfo([AliasAs("_asset_policy")] string policyId,
             [AliasAs("limit")] int? limit = null,
             [AliasAs("offset")] int? offset = null,
@@ -54,5 +87,14 @@ namespace CardanoSharp.Koios.Client
             [AliasAs("limit")] int? limit = null,
             [AliasAs("offset")] int? offset = null,
             [Header("Prefer")] string? prefer = null);
+    }
+
+    public class AssetUtxoRequest
+    {
+        [JsonPropertyName("_asset_list")]
+        public List<string[]> AssetList { get; set; }
+        
+        [JsonPropertyName("_extended")]
+        public bool? Extended { get; set; }
     }
 }

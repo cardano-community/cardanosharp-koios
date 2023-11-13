@@ -49,5 +49,9 @@ namespace CardanoSharp.Koios.Client.Contracts
         [DataMember]
         [JsonPropertyName("burn_cnt")]
         public ulong BurnCount { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("cip68_metadata")]
+        public object? Cip68Metadata { get; set; }
     }
 }

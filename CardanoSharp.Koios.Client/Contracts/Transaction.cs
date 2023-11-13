@@ -65,23 +65,23 @@ namespace CardanoSharp.Koios.Client.Contracts
 
         [DataMember]
         [JsonPropertyName("collateral_inputs")]
-        public IEnumerable<Utxo>? CollateralInputs { get; set; }
+        public IEnumerable<TransactionUtxo>? CollateralInputs { get; set; }
 
         [DataMember]
         [JsonPropertyName("collateral_output")]
-        public Utxo? CollateralOutput { get; set; }
+        public TransactionUtxo? CollateralOutput { get; set; }
 
         [DataMember]
         [JsonPropertyName("reference_inputs")]
-        public IEnumerable<Utxo>? ReferenceInputs { get; set; }
+        public IEnumerable<TransactionUtxo>? ReferenceInputs { get; set; }
 
         [DataMember]
         [JsonPropertyName("inputs")]
-        public IEnumerable<Utxo>? Inputs { get; set; }
+        public IEnumerable<TransactionUtxo>? Inputs { get; set; }
         
         [DataMember]
         [JsonPropertyName("outputs")]
-        public IEnumerable<Utxo>? Outputs { get; set; }
+        public IEnumerable<TransactionUtxo>? Outputs { get; set; }
         
         [DataMember]
         [JsonPropertyName("withdrawals")]
@@ -108,16 +108,9 @@ namespace CardanoSharp.Koios.Client.Contracts
         public IEnumerable<PlutusContract>? PlutusContracts { get; set; }
     }
 
-    public class Utxo
+    [DataContract]
+    public class TransactionUtxo
     {
-        [DataMember]
-        [JsonPropertyName("payment_addr")]
-        public TransactionPaymentAddress? PaymentAddress { get; set; }
-        
-        [DataMember]
-        [JsonPropertyName("stake_addr")]
-        public string? StakeAddress { get; set; }
-        
         [DataMember]
         [JsonPropertyName("tx_hash")]
         public string? TxHash { get; set; }
@@ -129,6 +122,70 @@ namespace CardanoSharp.Koios.Client.Contracts
         [DataMember]
         [JsonPropertyName("value")]
         public string? Value { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("datum_hash")]
+        public string? DatumHash { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("payment_addr")]
+        public TransactionPaymentAddress? PaymentAddress { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("stake_addr")]
+        public string? StakeAddress { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("inline_datum")]
+        public InlineDatum? InlineDatum { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("reference_script")]
+        public ReferenceScript? ReferenceScript { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("asset_list")]
+        public IEnumerable<AssetListInformation>? AssetList { get; set; }
+    }
+    
+    [DataContract]
+    public class Utxo
+    {
+        [DataMember]
+        [JsonPropertyName("tx_hash")]
+        public string? TxHash { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("tx_index")]
+        public uint TxIndex { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("stake_address")]
+        public string? StakeAddress { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("address")]
+        public string? Address { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("value")]
+        public string? Value { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("payment_cred")]
+        public string? PaymentCred { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("epoch_no")]
+        public uint EpochNo { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("block_height")]
+        public uint BlockHeight { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("block_time")]
+        public long BlockTime { get; set; }
 
         [DataMember]
         [JsonPropertyName("datum_hash")]
@@ -332,5 +389,10 @@ namespace CardanoSharp.Koios.Client.Contracts
         [DataMember]
         [JsonPropertyName("value")]
         public object? Value { get; set; }
+    }
+
+    public class Metalabel
+    {
+        [JsonPropertyName("key")] public string? Key { get; set; }
     }
 }
