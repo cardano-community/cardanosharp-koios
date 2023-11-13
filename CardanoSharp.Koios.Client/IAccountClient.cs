@@ -18,6 +18,12 @@ namespace CardanoSharp.Koios.Client
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string? prefer = null);
 
+        [Post("/account_utxos")]
+        Task<ApiResponse<AccountUtxo[]>> GetAccountUtxos([Body]AccountUtxoRequest request, 
+            [AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string? prefer = null);
+
         [Post("/account_rewards")]
         Task<ApiResponse<AccountRewardGroup[]>> GetAccountRewards([Body] AccountHistoricalBulkRequest request,
             [AliasAs("_epoch_no")]string? epochNo = null, 
@@ -65,5 +71,14 @@ namespace CardanoSharp.Koios.Client
 
         [JsonPropertyName("_epoch_no")]
         public uint EpochNo { get; set; }
+    }
+
+    public class AccountUtxoRequest
+    {
+        [JsonPropertyName("_stake_addresses")]
+        public string[]? StakeAddresses { get; set; }
+
+        [JsonPropertyName("_extended")]
+        public bool Extended { get; set; }
     }
 }

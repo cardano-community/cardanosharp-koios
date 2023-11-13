@@ -4,15 +4,15 @@ using System.Text.Json;
 using CardanoSharp.Koios.Client;
 using Refit;
 
-var networkClient = RestService.For<INetworkClient>("https://api.koios.rest/api/v0");
-var epochClient = RestService.For<IEpochClient>("https://api.koios.rest/api/v0");
-var blockClient = RestService.For<IBlockClient>("https://api.koios.rest/api/v0");
-var transactionClient = RestService.For<ITransactionClient>("https://api.koios.rest/api/v0");
-var addressClient = RestService.For<IAddressClient>("https://api.koios.rest/api/v0");
-var accountClient = RestService.For<IAccountClient>("https://api.koios.rest/api/v0");
-var assetClient = RestService.For<IAssetClient>("https://api.koios.rest/api/v0");
-var poolClient = RestService.For<IPoolClient>("https://api.koios.rest/api/v0");
-var scriptClient = RestService.For<IScriptClient>("https://api.koios.rest/api/v0");
+var networkClient = RestService.For<INetworkClient>("https://api.koios.rest/api/v1");
+var epochClient = RestService.For<IEpochClient>("https://api.koios.rest/api/v1");
+var blockClient = RestService.For<IBlockClient>("https://api.koios.rest/api/v1");
+var transactionClient = RestService.For<ITransactionClient>("https://api.koios.rest/api/v1");
+var addressClient = RestService.For<IAddressClient>("https://api.koios.rest/api/v1");
+var accountClient = RestService.For<IAccountClient>("https://api.koios.rest/api/v1");
+var assetClient = RestService.For<IAssetClient>("https://api.koios.rest/api/v1");
+var poolClient = RestService.For<IPoolClient>("https://api.koios.rest/api/v1");
+var scriptClient = RestService.For<IScriptClient>("https://api.koios.rest/api/v1");
 
 // Query Chain Tip
 Console.WriteLine("Query Chain Tip");
@@ -40,6 +40,33 @@ var historicalStats = networkClient.GetHistoricalTokenomicStats(latestEpoch).Res
 foreach (var hs in historicalStats.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(hs));
+}
+Console.WriteLine();
+
+// Get Param Update Proposals
+Console.WriteLine("Get Param Update Proposals");
+var paramUpdateProposals = networkClient.GetParamUpdateProposals().Result;
+foreach (var pup in paramUpdateProposals.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pup));
+}
+Console.WriteLine();
+
+// Get Reserve Withdrawals
+Console.WriteLine("Get Reserve Withdrawals");
+var reserveWithdrawals = networkClient.GetReserveWithdrawals().Result;
+foreach (var rw in reserveWithdrawals.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(rw));
+}
+Console.WriteLine();
+
+// Get Treasury Withdrawals
+Console.WriteLine("Get Treasury Withdrawals");
+var treasuryWithdrawals = networkClient.GetTreasuryWithdrawals().Result;
+foreach (var tw in treasuryWithdrawals.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(tw));
 }
 Console.WriteLine();
 
@@ -105,7 +132,7 @@ var transactionRequest = new GetTransactionRequest
 {
     TxHashes = new List<string>()
     {
-        "1be5e0c09cb4ff238e00717fcce4f01acc286f7b4595d44334c8b911b6ce600b"
+        "f144a8264acf4bdfe2e1241170969c930d64ab6b0996a4a45237b623f1dd670e"
     }
 };
 var transactionInformation = transactionClient.GetTransactionInformation(transactionRequest).Result;
@@ -117,7 +144,16 @@ Console.WriteLine();
 
 // Get Transaction UTxOs
 Console.WriteLine("Get Transaction UTxOs");
-var transactionUtxos = transactionClient.GetTransactionUtxos(transactionRequest).Result;
+var transactionUtxoRequest = new GetTransactionUtxoRequest
+{
+    TxHashes = new List<string>()
+    {
+        "f144a8264acf4bdfe2e1241170969c930d64ab6b0996a4a45237b623f1dd670e#0",
+        "0b8ba3bed976fa4913f19adc9f6dd9063138db5b4dd29cecde369456b5155e94#0"
+    },
+    Extended = true
+};
+var transactionUtxos = transactionClient.GetTransactionUtxos(transactionUtxoRequest).Result;
 foreach (var tu in transactionUtxos.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(tu));
@@ -133,7 +169,16 @@ foreach (var tm in transactionMetadata.Content)
 }
 Console.WriteLine();
 
-//Get Transaction Metadata
+// Get Transaction Metadata Labels
+Console.WriteLine("Get Transaction Metadata Labels");
+var transactionMetadataLabels = transactionClient.GetTransactionMetadataLabels().Result;
+foreach (var tml in transactionMetadataLabels.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(tml));
+}
+Console.WriteLine();
+
+//Get Transaction Status
 Console.WriteLine("Get Transaction Status");
 var transactionStatus = transactionClient.GetTransactionStatus(transactionRequest).Result;
 foreach (var ts in transactionStatus.Content)
@@ -165,6 +210,33 @@ var addressInformation = addressClient.GetAddressInformation(addressBulkRequest)
 foreach (var ai in addressInformation.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(ai));
+}
+Console.WriteLine();
+
+// Get Address UTxOs
+Console.WriteLine("Get Address UTxOs");
+var addressUtxos = addressClient.GetAddressUtxos(addressBulkRequest).Result;
+foreach (var au in addressUtxos.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(au));
+}
+Console.WriteLine();
+
+// Get Credential UTxOs
+Console.WriteLine("Get Credential UTxOs");
+var credentialUtxoRequest = new GetCredentialUtxosRequest()
+{
+    PaymentCredentials = new List<string>()
+    {
+        "025b0a8f85cb8a46e1dda3fae5d22f07e2d56abb4019a2129c5d6c52",
+        "13f6870c5e4f3b242463e4dc1f2f56b02a032d3797d933816f15e555"
+    },
+    Extended = true
+};
+var credentialUtxos = addressClient.GetCredentialUtxos(credentialUtxoRequest).Result;
+foreach (var cu in credentialUtxos.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(cu));
 }
 Console.WriteLine();
 
@@ -234,6 +306,16 @@ foreach (var si in stakeInformation.Content)
 }
 Console.WriteLine();
 
+// Get Stake UTxOs
+Console.WriteLine("Get Account UTxOs");
+var accountUtxoRequest = new AccountUtxoRequest { StakeAddresses = stakeAddressesToRequest };
+var stakeUtxos = accountClient.GetAccountUtxos(accountUtxoRequest).Result;
+foreach (var su in stakeUtxos.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(su));
+}
+Console.WriteLine();
+
 // Get Stake Rewards
 Console.WriteLine("Get Account Rewards");
 var accountHistoryRequest = new AccountHistoricalBulkRequest { StakeAddresses = stakeAddressesToRequest, EpochNo = 280 };
@@ -289,10 +371,45 @@ foreach (var ai in assets.Content)
 }
 Console.WriteLine();
 
-// Get Asset Address List
-Console.WriteLine("Get Asset Address List");
 var policyId = "d3501d9531fcc25e3ca4b6429318c2cc374dbdbcf5e99c1c1e5da1ff";
 var assetName = "444f4e545350414d";
+// Get Policy Asset List
+Console.WriteLine("Get Policy Asset List");
+var policyAssetList = assetClient.GetPolicyAssetsList(policyId).Result;
+foreach (var pal in policyAssetList.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(pal));
+}
+Console.WriteLine();
+
+// Get Asset Token Registry
+Console.WriteLine("Get Asset Token Registry");
+var assetTokenRegistry = assetClient.GetTokenRegistry().Result;
+
+Console.WriteLine(JsonSerializer.Serialize(assetTokenRegistry.Content.First()));
+
+Console.WriteLine();
+
+// Get Asset Utxos
+Console.WriteLine("Get Asset Utxos");
+var assetUtxoRequest = new AssetUtxoRequest()
+{
+    AssetList = new List<string[]>()
+    {
+        new []{"750900e4999ebe0d58f19b634768ba25e525aaf12403bfe8fe130501","424f4f4b"},
+        new []{"f0ff48bbb7bbe9d59a40f1ce90e9e9d0ff5002ec48f232b49ca0fb9a","6b6f696f732e72657374"}
+    },
+    Extended = true
+};
+var assetUtxos = assetClient.GetUtxos(assetUtxoRequest).Result;
+foreach (var au in assetUtxos.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(au));
+}
+Console.WriteLine();
+
+// Get Asset Address List
+Console.WriteLine("Get Asset Address List");
 var assetAddresses = assetClient.GetAddresses(policyId, assetName).Result;
 foreach (var aa in assetAddresses.Content)
 {
@@ -315,6 +432,24 @@ var assetHistory = assetClient.GetHistory(policyId, assetName).Result;
 foreach (var history in assetHistory.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(history));
+}
+Console.WriteLine();
+
+// Get Asset NFT Address
+Console.WriteLine("Get Asset NFT Address");
+var assetNftAddresses = assetClient.GetNftAddresses(policyId, assetName).Result;
+foreach (var nftAddress in assetNftAddresses.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(nftAddress));
+}
+Console.WriteLine();
+
+// Get Policy Asset Addresses
+Console.WriteLine("Get Policy Asset Addresses");
+var policyAssetAddresses = assetClient.GetPolicyAssetAddresses(policyId).Result;
+foreach (var paa in policyAssetAddresses.Content)
+{
+    Console.WriteLine(JsonSerializer.Serialize(paa));
 }
 Console.WriteLine();
 

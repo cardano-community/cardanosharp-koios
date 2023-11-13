@@ -4,26 +4,22 @@ using System.Text.Json.Serialization;
 namespace CardanoSharp.Koios.Client.Contracts
 {
     [DataContract]
-    public class AssetListInformation
+    public class PolicyAsset
     {
-        [DataMember]
-        [JsonPropertyName("policy_id")]
-        public string? PolicyId { get; set; }
-
         [DataMember]
         [JsonPropertyName("asset_name")]
         public string? AssetName { get; set; }
-
-        [DataMember]
-        [JsonPropertyName("quantity")]
-        public string? Quantity { get; set; }
 
         [DataMember]
         [JsonPropertyName("fingerprint")]
         public string? Fingerprint { get; set; }
         
         [DataMember]
-        [JsonPropertyName("decimal")]
-        public uint Decimal { get; set; }
+        [JsonPropertyName("total_supply")]
+        public string? TotalSupply { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("decimals")]
+        public uint? Decimals { get; set; }
     }
 }

@@ -17,5 +17,20 @@ namespace CardanoSharp.Koios.Client
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null, 
             [Header("Prefer")] string? prefer = null);
+
+        [Get("/param_updates")]
+        Task<ApiResponse<ParamUpdateProposal[]>> GetParamUpdateProposals([AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string? prefer = null);
+        
+        [Get("/reserve_withdrawals")]
+        Task<ApiResponse<ReserveWithdrawal[]>> GetReserveWithdrawals([AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string? prefer = null);
+        
+        [Get("/treasury_withdrawals")]
+        Task<ApiResponse<TreasuryWithdrawal[]>> GetTreasuryWithdrawals([AliasAs("limit")]int? limit = null, 
+            [AliasAs("offset")]int? offset = null, 
+            [Header("Prefer")] string? prefer = null);
     }
 }

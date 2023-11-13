@@ -13,5 +13,17 @@ namespace CardanoSharp.Koios.Client.Contracts
         [DataMember]
         [JsonPropertyName("tx_hashes")]
         public string[]? TxHashes { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("epoch_no")]
+        public uint? Epoch { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("block_height")]
+        public uint? BlockHeight { get; set; }
+        
+        [DataMember]
+        [JsonPropertyName("block_time")]
+        public ulong? BlockTime { get; set; }
     }
 }
