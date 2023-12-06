@@ -260,7 +260,7 @@ Console.WriteLine();
 
 // Get Address Assets
 Console.WriteLine("Get Address Assets");
-var addressAssets = addressClient.GetAddressAssets(addressBulkRequest).Result;
+var addressAssets = addressClient.GetAddressAssets(new AddressBulkRequest() { Addresses = new List<String>() {"addr1qy2jt0qpqz2z2z9zx5w4xemekkce7yderz53kjue53lpqv90lkfa9sgrfjuz6uvt4uqtrqhl2kj0a9lnr9ndzutx32gqleeckv"}}).Result;
 foreach (var aa in addressAssets.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(aa));
