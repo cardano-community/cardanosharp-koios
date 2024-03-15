@@ -15,7 +15,7 @@ namespace CardanoSharp.Koios.Client
             [Header("Prefer")] string? prefer = null);
         
         [Post("/address_utxos")]
-        Task<ApiResponse<AddressUtxo[]>> GetAddressUtxos([Body] AddressBulkRequest request, 
+        Task<ApiResponse<AddressUtxo[]>> GetAddressUtxos([Body] AddressUtxoRequest request, 
             [AliasAs("limit")]int? limit = null, 
             [AliasAs("offset")]int? offset = null,
             [Header("Prefer")] string? prefer = null);
@@ -48,13 +48,22 @@ namespace CardanoSharp.Koios.Client
     public class AddressBulkRequest
     {
         [JsonPropertyName("_addresses")]
-        public List<string>? Addresses { get; set; }
+        public string[]? Addresses { get; set; }
+    }
+
+    public class AddressUtxoRequest
+    {
+        [JsonPropertyName("_addresses")]
+        public string[]? Addresses { get; set; }
+
+        [JsonPropertyName("_extended")]
+        public bool Extended { get; set; }
     }
 
     public class AddressTransactionRequest
     {
         [JsonPropertyName("_addresses")] 
-        public List<string>? Addresses { get; set; }
+        public string[]? Addresses { get; set; }
         
         [JsonPropertyName("_after_block_height")]
         public uint AfterBlockHeight { get; set; }
@@ -63,7 +72,7 @@ namespace CardanoSharp.Koios.Client
     public class GetCredentialUtxosRequest
     {
         [JsonPropertyName("_payment_credentials")] 
-        public List<string>? PaymentCredentials { get; set; }
+        public string[]? PaymentCredentials { get; set; }
         
         [JsonPropertyName("_extended")]
         public bool Extended { get; set; }
@@ -72,7 +81,7 @@ namespace CardanoSharp.Koios.Client
     public class CredentialTransactionRequest
     {
         [JsonPropertyName("_payment_credentials")] 
-        public List<string>? PaymentCredentials { get; set; }
+        public string[]? PaymentCredentials { get; set; }
         
         [JsonPropertyName("_after_block_height")]
         public uint AfterBlockHeight { get; set; }
