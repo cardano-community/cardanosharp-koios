@@ -205,7 +205,7 @@ Console.WriteLine();
 // Get Address Information
 Console.WriteLine("Get Address Information");
 var address = "addr1qyp9kz50sh9c53hpmk3l4ewj9ur794t2hdqpngsjn3wkc5sztv9glpwt3frwrhdrltjaytc8ut2k4w6qrx3p98zad3fq07xe9g";
-var addressBulkRequest = new AddressBulkRequest { Addresses = new List<string> { address } };
+var addressBulkRequest = new AddressBulkRequest { Addresses = new[] { address } };
 var addressInformation = addressClient.GetAddressInformation(addressBulkRequest).Result;
 foreach (var ai in addressInformation.Content)
 {
@@ -215,7 +215,8 @@ Console.WriteLine();
 
 // Get Address UTxOs
 Console.WriteLine("Get Address UTxOs");
-var addressUtxos = addressClient.GetAddressUtxos(addressBulkRequest).Result;
+var addressUtxoRequest = new AddressUtxoRequest { Addresses = new[] { address } };
+var addressUtxos = addressClient.GetAddressUtxos(addressUtxoRequest).Result;
 foreach (var au in addressUtxos.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(au));
@@ -226,7 +227,7 @@ Console.WriteLine();
 Console.WriteLine("Get Credential UTxOs");
 var credentialUtxoRequest = new GetCredentialUtxosRequest()
 {
-    PaymentCredentials = new List<string>()
+    PaymentCredentials = new[]
     {
         "025b0a8f85cb8a46e1dda3fae5d22f07e2d56abb4019a2129c5d6c52",
         "13f6870c5e4f3b242463e4dc1f2f56b02a032d3797d933816f15e555"
@@ -244,7 +245,7 @@ Console.WriteLine();
 Console.WriteLine("Get Address Transactions");
 var addressTransactionRequest = new AddressTransactionRequest()
 {
-    Addresses = new List<string>()
+    Addresses = new[]
     {
         "addr1qyp9kz50sh9c53hpmk3l4ewj9ur794t2hdqpngsjn3wkc5sztv9glpwt3frwrhdrltjaytc8ut2k4w6qrx3p98zad3fq07xe9g",
         "addr1qyfldpcvte8nkfpyv0jdc8e026cz5qedx7tajvupdu2724tlj8sypsq6p90hl40ya97xamkm9fwsppus2ru8zf6j8g9sm578cu"
@@ -260,7 +261,7 @@ Console.WriteLine();
 
 // Get Address Assets
 Console.WriteLine("Get Address Assets");
-var addressAssets = addressClient.GetAddressAssets(new AddressBulkRequest() { Addresses = new List<String>() {"addr1qy2jt0qpqz2z2z9zx5w4xemekkce7yderz53kjue53lpqv90lkfa9sgrfjuz6uvt4uqtrqhl2kj0a9lnr9ndzutx32gqleeckv"}}).Result;
+var addressAssets = addressClient.GetAddressAssets(new AddressBulkRequest() { Addresses = new[] { "addr1qy2jt0qpqz2z2z9zx5w4xemekkce7yderz53kjue53lpqv90lkfa9sgrfjuz6uvt4uqtrqhl2kj0a9lnr9ndzutx32gqleeckv" } }).Result;
 foreach (var aa in addressAssets.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(aa));
@@ -271,7 +272,7 @@ Console.WriteLine();
 Console.WriteLine("Get Transactions from payment credentials");
 var credentialTransactionRequest = new CredentialTransactionRequest()
 {
-    PaymentCredentials = new List<string>()
+    PaymentCredentials = new[]
     {
         "025b0a8f85cb8a46e1dda3fae5d22f07e2d56abb4019a2129c5d6c52",
         "13f6870c5e4f3b242463e4dc1f2f56b02a032d3797d933816f15e555"
@@ -611,8 +612,8 @@ Console.WriteLine();
 
 // Get Datum Information
 Console.WriteLine("Get Datum Information");
-var datumHashes = new[]{"818ee3db3bbbd04f9f2ce21778cac3ac605802a4fcb00c8b3a58ee2dafc17d46", "45b0cfc220ceec5b7c1c62c4d4193d38e4eba48e8815729ce75f9c0ab0e4c1c0"};
-var datumInfo = scriptClient.GetDatumInformation(new GetDatumInformationRequest { DatumHashes = datumHashes}).Result;
+var datumHashes = new[] { "818ee3db3bbbd04f9f2ce21778cac3ac605802a4fcb00c8b3a58ee2dafc17d46", "45b0cfc220ceec5b7c1c62c4d4193d38e4eba48e8815729ce75f9c0ab0e4c1c0" };
+var datumInfo = scriptClient.GetDatumInformation(new GetDatumInformationRequest { DatumHashes = datumHashes }).Result;
 foreach (var di in datumInfo.Content)
 {
     Console.WriteLine(JsonSerializer.Serialize(di));
